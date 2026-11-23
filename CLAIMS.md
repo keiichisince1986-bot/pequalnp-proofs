@@ -17,3 +17,4 @@ Rules (every agent, every time):
 | step | agent | status | updated (JST) | note |
 |------|-------|--------|---------------|------|
 | L-meta-540 | Claude | released | 2026-11-24 00:24 | settled upstream by PR 859 before we finished |
+| L-meta-602 | Claude | working | 2026-11-24 00:33 | conjecture; SAT search for a counterexample circuit |
