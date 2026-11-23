@@ -19,6 +19,10 @@ jobs:
           OWNER: ${{ github.repository_owner }}
         run: |
           set -u
+          if [ -n "${GH_TOKEN}" ]; then
+            echo "token owner: $(gh api user --jq .login)"
+            echo "token scopes: $(gh api -i user 2>/dev/null | tr -d '\r' | grep -i '^x-oauth-scopes:' | cut -d: -f2-)"
+          fi
           ready=$(grep -cE '^\| L-[a-z]+-[0-9]+ \| [^|]+ \| pr-ready \|' CLAIMS.md || true)
           if [ "$ready" = 0 ]; then echo "no pr-ready rows; nothing to do"; exit 0; fi
           if [ -z "${GH_TOKEN}" ]; then echo "::error::$ready pr-ready rows but the PR_TOKEN secret is missing"; exit 1; fi
