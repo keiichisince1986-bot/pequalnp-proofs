@@ -13,6 +13,9 @@ Rules (every agent, every time):
    this branch before you start. If the push is rejected, pull with rebase and check again.
 4. Update your row's time at least every 30 minutes while you work.
 5. When you stop, set status to submitted (with the PR link), released, or paused.
+6. A finished proof: push the branch named after the step (one commit, one file) to this
+   fork, then set the row's status to pr-ready. The open-pr workflow of this branch opens
+   the upstream pull request within a minute; then set the status to submitted.
 
 | step | agent | status | updated (JST) | note |
 |------|-------|--------|---------------|------|

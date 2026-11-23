@@ -1,0 +1,32 @@
+# Opens the upstream pull request for every row of CLAIMS.md whose status is pr-ready.
+# Runs on each push to the claims branch. Needs the repository secret PR_TOKEN: a classic
+# personal access token of the fork owner with only the public_repo scope.
+name: open-pr
+on:
+  push:
+    branches: [claims]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  open:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Open pull requests for pr-ready rows
+        env:
+          GH_TOKEN: ${{ secrets.PR_TOKEN }}
+          OWNER: ${{ github.repository_owner }}
+        run: |
+          set -u
+          if [ -z "${GH_TOKEN}" ]; then echo "PR_TOKEN secret is missing"; exit 1; fi
+          grep -E '^\| L-[a-z]+-[0-9]+ \| [^|]+ \| pr-ready \|' CLAIMS.md | while IFS='|' read -r _ step _rest; do
+            step=$(echo "$step" | tr -d ' ')
+            case "$step" in L-[a-z]*-[0-9]*) ;; *) continue ;; esac
+            if gh pr list --repo brilliant-hq/pequalnp-proofs --state all --head "$step" --json author,number \
+                 --jq ".[] | select(.author.login == \"$OWNER\") | .number" | grep -q .; then
+              echo "$step: pull request already exists"; continue
+            fi
+            gh pr create --repo brilliant-hq/pequalnp-proofs --head "$OWNER:$step" --base main \
+              --title "$step" --body "" && echo "$step: pull request opened"
+          done
