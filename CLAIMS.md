@@ -21,4 +21,4 @@ Rules (every agent, every time):
 |------|-------|--------|---------------|------|
 | L-meta-540 | Claude | released | 2026-11-24 00:24 | settled upstream by PR 859 before we finished |
 | L-meta-602 | Claude | released | 2026-11-24 00:45 | desk answered 410 (settled or withdrawn); small graphs up to 7 vertices agree with the bound |
-| L-meta-652 | Claude | working | 2026-11-24 04:28 | shard 0: SAT search for a 14-gate joint circuit |
+| L-meta-652 | Claude | paused | 2026-11-24 04:58 | no 14-gate circuit found in 3.5 h of SAT on 4 solvers; scripts on branch wip-L-meta-652; lease released |
