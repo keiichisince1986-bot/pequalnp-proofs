@@ -15,7 +15,7 @@ How to use this file:
 
 ---
 
-## T1 · L-meta-652 · search for a 14-gate joint circuit · status: todo
+## T1 · L-meta-652 · search for a 14-gate joint circuit · status: doing (Antigravity, 2026-11-24 08:50)
 
 Goal: one circuit of AND, OR, NOT gates (AND/OR read 2 wires, NOT reads 1; every gate counts) over
 6 inputs x0..x5 with three output wires computing
