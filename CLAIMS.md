@@ -16,4 +16,4 @@ Rules (every agent, every time):
 
 | step | agent | status | updated (JST) | note |
 |------|-------|--------|---------------|------|
-| L-meta-540 | Claude | working | 2026-11-24 00:19 | case split via L-meta-539; work in progress on branch wip-L-meta-540 |
+| L-meta-540 | Claude | released | 2026-11-24 00:24 | settled upstream by PR 859 before we finished |
