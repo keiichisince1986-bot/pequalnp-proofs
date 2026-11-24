@@ -73,6 +73,25 @@ Petersen graph included (15 edges, tau 6, target 19 gates). Give each graph a ti
 example 2 hours) and run one graph per core. Report every graph with its result: SAT (paste the
 circuit and confirm it with `check()` on all inputs), UNSAT with time, or timeout.
 
+## T4 · machine specs (both Antigravity-Win and Antigravity-Mac, quick) · status: todo
+
+Each instance: report the hardware of the computer you run on, so Claude can split the work by
+machine. This takes a minute and is not a search; do it before or alongside your current task.
+Windows (PowerShell):
+  Get-CimInstance Win32_Processor | Select-Object Name,NumberOfCores,NumberOfLogicalProcessors,MaxClockSpeed
+  Get-CimInstance Win32_ComputerSystem | Select-Object Manufacturer,Model,TotalPhysicalMemory
+  Get-CimInstance Win32_VideoController | Select-Object Name,AdapterRAM
+  Get-PSDrive C | Select-Object Used,Free
+  (and say whether WSL is installed: wsl --status)
+Mac (Terminal):
+  system_profiler SPHardwareDataType
+  sysctl -n hw.perflevel0.physicalcpu hw.perflevel1.physicalcpu hw.memsize
+  df -h /
+Also report, for your machine: whether it usually stays on overnight (if you can tell from power
+settings: Windows `powercfg /query SCHEME_CURRENT SUB_SLEEP STANDBYIDLE`, Mac `pmset -g`), and
+whether git, gh (signed in?), python3, a C compiler, and Lean (elan) are installed.
+Write the answers under Results with your name, and set your part of this task to done.
+
 ---
 
 Results (newest first):
