@@ -27,3 +27,143 @@ UNSAT subcase [0, 1, 2, 4, 5, 6, 9]; 13 completed
 Checking movable vertices [0, 1, 2, 4, 5, 7, 8]
 UNSAT subcase [0, 1, 2, 4, 5, 7, 8]; 14 completed
 Checking movable vertices [0, 1, 2, 4, 5, 7, 9]
+UNSAT subcase [0, 1, 2, 4, 5, 7, 9]; 15 completed
+Checking movable vertices [0, 1, 2, 4, 5, 8, 9]
+UNSAT subcase [0, 1, 2, 4, 5, 8, 9]; 16 completed
+Checking movable vertices [0, 1, 2, 5, 6, 7, 8]
+UNSAT subcase [0, 1, 2, 5, 6, 7, 8]; 17 completed
+Checking movable vertices [0, 1, 2, 5, 6, 7, 9]
+UNSAT subcase [0, 1, 2, 5, 6, 7, 9]; 18 completed
+Checking movable vertices [0, 1, 2, 5, 6, 8, 9]
+UNSAT subcase [0, 1, 2, 5, 6, 8, 9]; 19 completed
+Checking movable vertices [0, 1, 2, 5, 7, 8, 9]
+UNSAT subcase [0, 1, 2, 5, 7, 8, 9]; 20 completed
+Checking movable vertices [0, 1, 3, 4, 5, 6, 7]
+UNSAT subcase [0, 1, 3, 4, 5, 6, 7]; 21 completed
+Checking movable vertices [0, 1, 3, 4, 5, 6, 8]
+UNSAT subcase [0, 1, 3, 4, 5, 6, 8]; 22 completed
+Checking movable vertices [0, 1, 3, 4, 5, 6, 9]
+UNSAT subcase [0, 1, 3, 4, 5, 6, 9]; 23 completed
+Checking movable vertices [0, 1, 3, 4, 5, 7, 8]
+UNSAT subcase [0, 1, 3, 4, 5, 7, 8]; 24 completed
+Checking movable vertices [0, 1, 3, 4, 5, 7, 9]
+UNSAT subcase [0, 1, 3, 4, 5, 7, 9]; 25 completed
+Checking movable vertices [0, 1, 3, 4, 5, 8, 9]
+UNSAT subcase [0, 1, 3, 4, 5, 8, 9]; 26 completed
+Checking movable vertices [0, 1, 3, 5, 6, 7, 8]
+UNSAT subcase [0, 1, 3, 5, 6, 7, 8]; 27 completed
+Checking movable vertices [0, 1, 3, 5, 6, 7, 9]
+UNSAT subcase [0, 1, 3, 5, 6, 7, 9]; 28 completed
+Checking movable vertices [0, 1, 3, 5, 6, 8, 9]
+UNSAT subcase [0, 1, 3, 5, 6, 8, 9]; 29 completed
+Checking movable vertices [0, 1, 3, 5, 7, 8, 9]
+UNSAT subcase [0, 1, 3, 5, 7, 8, 9]; 30 completed
+Checking movable vertices [0, 1, 4, 5, 6, 7, 8]
+UNSAT subcase [0, 1, 4, 5, 6, 7, 8]; 31 completed
+Checking movable vertices [0, 1, 4, 5, 6, 7, 9]
+UNSAT subcase [0, 1, 4, 5, 6, 7, 9]; 32 completed
+Checking movable vertices [0, 1, 4, 5, 6, 8, 9]
+UNSAT subcase [0, 1, 4, 5, 6, 8, 9]; 33 completed
+Checking movable vertices [0, 1, 4, 5, 7, 8, 9]
+UNSAT subcase [0, 1, 4, 5, 7, 8, 9]; 34 completed
+Checking movable vertices [0, 1, 5, 6, 7, 8, 9]
+UNSAT subcase [0, 1, 5, 6, 7, 8, 9]; 35 completed
+Checking movable vertices [0, 2, 3, 4, 5, 6, 7]
+UNSAT subcase [0, 2, 3, 4, 5, 6, 7]; 36 completed
+Checking movable vertices [0, 2, 3, 4, 5, 6, 8]
+UNSAT subcase [0, 2, 3, 4, 5, 6, 8]; 37 completed
+Checking movable vertices [0, 2, 3, 4, 5, 6, 9]
+UNSAT subcase [0, 2, 3, 4, 5, 6, 9]; 38 completed
+Checking movable vertices [0, 2, 3, 4, 5, 7, 8]
+UNSAT subcase [0, 2, 3, 4, 5, 7, 8]; 39 completed
+Checking movable vertices [0, 2, 3, 4, 5, 7, 9]
+UNSAT subcase [0, 2, 3, 4, 5, 7, 9]; 40 completed
+Checking movable vertices [0, 2, 3, 4, 5, 8, 9]
+UNSAT subcase [0, 2, 3, 4, 5, 8, 9]; 41 completed
+Checking movable vertices [0, 2, 3, 5, 6, 7, 8]
+UNSAT subcase [0, 2, 3, 5, 6, 7, 8]; 42 completed
+Checking movable vertices [0, 2, 3, 5, 6, 7, 9]
+UNSAT subcase [0, 2, 3, 5, 6, 7, 9]; 43 completed
+Checking movable vertices [0, 2, 3, 5, 6, 8, 9]
+UNSAT subcase [0, 2, 3, 5, 6, 8, 9]; 44 completed
+Checking movable vertices [0, 2, 3, 5, 7, 8, 9]
+UNSAT subcase [0, 2, 3, 5, 7, 8, 9]; 45 completed
+Checking movable vertices [0, 2, 4, 5, 6, 7, 8]
+UNSAT subcase [0, 2, 4, 5, 6, 7, 8]; 46 completed
+Checking movable vertices [0, 2, 4, 5, 6, 7, 9]
+UNSAT subcase [0, 2, 4, 5, 6, 7, 9]; 47 completed
+Checking movable vertices [0, 2, 4, 5, 6, 8, 9]
+UNSAT subcase [0, 2, 4, 5, 6, 8, 9]; 48 completed
+Checking movable vertices [0, 2, 4, 5, 7, 8, 9]
+UNSAT subcase [0, 2, 4, 5, 7, 8, 9]; 49 completed
+Checking movable vertices [0, 2, 5, 6, 7, 8, 9]
+UNSAT subcase [0, 2, 5, 6, 7, 8, 9]; 50 completed
+Checking movable vertices [0, 3, 4, 5, 6, 7, 8]
+UNSAT subcase [0, 3, 4, 5, 6, 7, 8]; 51 completed
+Checking movable vertices [0, 3, 4, 5, 6, 7, 9]
+UNSAT subcase [0, 3, 4, 5, 6, 7, 9]; 52 completed
+Checking movable vertices [0, 3, 4, 5, 6, 8, 9]
+UNSAT subcase [0, 3, 4, 5, 6, 8, 9]; 53 completed
+Checking movable vertices [0, 3, 4, 5, 7, 8, 9]
+UNSAT subcase [0, 3, 4, 5, 7, 8, 9]; 54 completed
+Checking movable vertices [0, 3, 5, 6, 7, 8, 9]
+UNSAT subcase [0, 3, 5, 6, 7, 8, 9]; 55 completed
+Checking movable vertices [0, 4, 5, 6, 7, 8, 9]
+UNSAT subcase [0, 4, 5, 6, 7, 8, 9]; 56 completed
+Checking movable vertices [1, 2, 3, 4, 5, 6, 7]
+UNSAT subcase [1, 2, 3, 4, 5, 6, 7]; 57 completed
+Checking movable vertices [1, 2, 3, 4, 5, 6, 8]
+UNSAT subcase [1, 2, 3, 4, 5, 6, 8]; 58 completed
+Checking movable vertices [1, 2, 3, 4, 5, 6, 9]
+UNSAT subcase [1, 2, 3, 4, 5, 6, 9]; 59 completed
+Checking movable vertices [1, 2, 3, 4, 5, 7, 8]
+UNSAT subcase [1, 2, 3, 4, 5, 7, 8]; 60 completed
+Checking movable vertices [1, 2, 3, 4, 5, 7, 9]
+UNSAT subcase [1, 2, 3, 4, 5, 7, 9]; 61 completed
+Checking movable vertices [1, 2, 3, 4, 5, 8, 9]
+UNSAT subcase [1, 2, 3, 4, 5, 8, 9]; 62 completed
+Checking movable vertices [1, 2, 3, 5, 6, 7, 8]
+UNSAT subcase [1, 2, 3, 5, 6, 7, 8]; 63 completed
+Checking movable vertices [1, 2, 3, 5, 6, 7, 9]
+UNSAT subcase [1, 2, 3, 5, 6, 7, 9]; 64 completed
+Checking movable vertices [1, 2, 3, 5, 6, 8, 9]
+UNSAT subcase [1, 2, 3, 5, 6, 8, 9]; 65 completed
+Checking movable vertices [1, 2, 3, 5, 7, 8, 9]
+UNSAT subcase [1, 2, 3, 5, 7, 8, 9]; 66 completed
+Checking movable vertices [1, 2, 4, 5, 6, 7, 8]
+UNSAT subcase [1, 2, 4, 5, 6, 7, 8]; 67 completed
+Checking movable vertices [1, 2, 4, 5, 6, 7, 9]
+UNSAT subcase [1, 2, 4, 5, 6, 7, 9]; 68 completed
+Checking movable vertices [1, 2, 4, 5, 6, 8, 9]
+UNSAT subcase [1, 2, 4, 5, 6, 8, 9]; 69 completed
+Checking movable vertices [1, 2, 4, 5, 7, 8, 9]
+UNSAT subcase [1, 2, 4, 5, 7, 8, 9]; 70 completed
+Checking movable vertices [1, 2, 5, 6, 7, 8, 9]
+UNSAT subcase [1, 2, 5, 6, 7, 8, 9]; 71 completed
+Checking movable vertices [1, 3, 4, 5, 6, 7, 8]
+UNSAT subcase [1, 3, 4, 5, 6, 7, 8]; 72 completed
+Checking movable vertices [1, 3, 4, 5, 6, 7, 9]
+UNSAT subcase [1, 3, 4, 5, 6, 7, 9]; 73 completed
+Checking movable vertices [1, 3, 4, 5, 6, 8, 9]
+UNSAT subcase [1, 3, 4, 5, 6, 8, 9]; 74 completed
+Checking movable vertices [1, 3, 4, 5, 7, 8, 9]
+UNSAT subcase [1, 3, 4, 5, 7, 8, 9]; 75 completed
+Checking movable vertices [1, 3, 5, 6, 7, 8, 9]
+UNSAT subcase [1, 3, 5, 6, 7, 8, 9]; 76 completed
+Checking movable vertices [1, 4, 5, 6, 7, 8, 9]
+UNSAT subcase [1, 4, 5, 6, 7, 8, 9]; 77 completed
+Checking movable vertices [2, 3, 4, 5, 6, 7, 8]
+UNSAT subcase [2, 3, 4, 5, 6, 7, 8]; 78 completed
+Checking movable vertices [2, 3, 4, 5, 6, 7, 9]
+UNSAT subcase [2, 3, 4, 5, 6, 7, 9]; 79 completed
+Checking movable vertices [2, 3, 4, 5, 6, 8, 9]
+UNSAT subcase [2, 3, 4, 5, 6, 8, 9]; 80 completed
+Checking movable vertices [2, 3, 4, 5, 7, 8, 9]
+UNSAT subcase [2, 3, 4, 5, 7, 8, 9]; 81 completed
+Checking movable vertices [2, 3, 5, 6, 7, 8, 9]
+UNSAT subcase [2, 3, 5, 6, 7, 8, 9]; 82 completed
+Checking movable vertices [2, 4, 5, 6, 7, 8, 9]
+UNSAT subcase [2, 4, 5, 6, 7, 8, 9]; 83 completed
+Checking movable vertices [3, 4, 5, 6, 7, 8, 9]
+UNSAT subcase [3, 4, 5, 6, 7, 8, 9]; 84 completed
+UNSAT sweep only: 84 subcases; elapsed=4745.875s

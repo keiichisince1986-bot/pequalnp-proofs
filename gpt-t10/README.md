@@ -78,3 +78,12 @@ The six-movable-vertex sweep completed all 126 subcases UNSAT in
 subcases and its own checkpoint. The fixed placements outside each
 movable set are those of the saved three-error candidate. All
 predecessor and output links remain free within each subcase.
+
+Coordinator status check (2026-11-24, JST). The SPLIT TABLE gives GPT
+the independent T10 cross-check, with no assigned output-gate set.
+Completed restricted runs: selector distances 13 through 16, UNSAT
+in 6552.875 s; seven movable bare vertices including vertex 5, all
+84 subcases UNSAT in 4745.875 s. These do not resolve unrestricted
+size six. The 85-row exact run and resumed staged run (79 rows at
+this check) remain active; the eight-movable-vertex sweep has started.
+No six-gate witness is available.

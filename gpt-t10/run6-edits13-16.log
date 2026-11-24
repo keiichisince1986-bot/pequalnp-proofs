@@ -1,1 +1,2 @@
 size=6 solver=cadical195 rows=115 variables=10905
+UNSAT elapsed=6552.875s
