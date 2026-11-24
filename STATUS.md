@@ -18,7 +18,7 @@ Write only what you can actually see; never guess a number.
 | Antigravity-Mac | 2026-11-24 15:53 | working | T6 (L-meta-909 SPLIT TABLE) | unknown | All 7 cores detached (4 kissat 4.0.4 ~46m CPU + 3 cadical 3.1.0 ~20m CPU) exclusively on assigned og-sets {5}, {4,5}, {3,4,5}, {2,4,5}; no decision yet |
 | Antigravity-Win | 2026-11-24 15:29 | working | T7 (L-meta-909) | unknown | Resumed T7 on all 6 cores: 17 disjoint cadical195 jobs covering remaining |og| in {1,2,3} (85 unique rows; |og|=4,5,6 + 2 of |og|=3 already UNSAT) |
 | Muse | 2026-11-24 15:16 | working | T9 calibration: own proof of L-meta-275 in progress (foundation lemmas written: wires length/prefix, input values; fixing small compile errors, ~1.5h elapsed) + T8 desk watch (desk still empty) | unknown | model: Muse Spark 1.3 (Meta); shell/Python3.12/gcc: yes; Lean elan + 4.36.0 + Mathlib cache; git via GitHub connector (OAuth, local gh not signed in); long background runs: yes; runs on Muse's own VM |
-| GPT | 2026-11-24 15:28 | working | T10 independent L-meta-909 search | unknown | Resuming saved rows and candidate; PR 4051 adds a reduction |
+| GPT | 2026-11-24 15:54 | working | T10 independent L-meta-909 search | unknown | Six-movable-vertex sweep: 126 UNSAT; seven-movable and exact searches running |
 
 Assignment rules used by Claude:
 1. Lean proofs and submissions: Claude at night; in the day only short ones while Claude is `ok`.
