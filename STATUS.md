@@ -18,7 +18,7 @@ Write only what you can actually see; never guess a number.
 | Antigravity-Mac | 2026-11-24 14:42 | working | T6 (L-meta-909) | unknown | 7 cores running kissat (seeds 1-3, --sat seed 4), cadical (seed 1, --sat seed 2), pysat cadical195 on l909_s6.cnf (~2h24m elapsed, ~133m CPU each, no decision yet) |
 | Antigravity-Win | 2026-11-24 14:56 | working | T7 (L-meta-909) | unknown | |og|=4 (4992s), |og|=5 (362s), |og|=6 (4.4s) UNSAT! 5 cores on |og|=1..3 & glucose4/maple/minisat + 6th core sub-splitting |og|=1..3 |
 | Muse | 2026-11-24 13:32 | working | T8: desk steps with Lean (desk empty at last ask, retrying) | unknown | model: Muse Spark 1.3 (Meta); shell: yes; git push: via GitHub connector (OAuth as keiichisince1986-bot; local gh not signed in); Python 3.12: yes; C compiler (gcc): yes; Lean: elan + Lean 4.36.0 with Mathlib cache; long-running background work: yes (hours); runs on Muse's own VM (not owner hardware); L-lib-124 stopped (covered by upstream PR #2160) |
-| GPT | 2026-11-24 14:11 | working | T10 independent L-meta-909 search | unknown | 7 gates verified on all 115 rows; 6-gate searches running; best candidate misses 3 rows |
+| GPT | 2026-11-24 15:03 | working | T10 independent L-meta-909 search | unknown | 7 gates verified on all 115 rows; 6-gate exact and staged runs active; best candidate misses 3 rows |
 
 Assignment rules used by Claude:
 1. Lean proofs and submissions: Claude at night; in the day only short ones while Claude is `ok`.
