@@ -1,1 +1,11 @@
 Checking movable vertices [0, 1, 2, 3, 4, 5, 6]
+UNSAT subcase [0, 1, 2, 3, 4, 5, 6]; 1 completed
+Checking movable vertices [0, 1, 2, 3, 4, 5, 7]
+UNSAT subcase [0, 1, 2, 3, 4, 5, 7]; 2 completed
+Checking movable vertices [0, 1, 2, 3, 4, 5, 8]
+UNSAT subcase [0, 1, 2, 3, 4, 5, 8]; 3 completed
+Checking movable vertices [0, 1, 2, 3, 4, 5, 9]
+UNSAT subcase [0, 1, 2, 3, 4, 5, 9]; 4 completed
+Checking movable vertices [0, 1, 2, 3, 5, 6, 7]
+UNSAT subcase [0, 1, 2, 3, 5, 6, 7]; 5 completed
+Checking movable vertices [0, 1, 2, 3, 5, 6, 8]
