@@ -133,7 +133,7 @@ size >= 1), all y, and all circuits with at most 7 gates (one NOT allowed, at in
 first violation, print it in full, and verify it again with a second, independent evaluator.
 Report how far you got (sizes covered, time) if nothing is found. Do not use more than the CPU.
 
-## T6 · L-meta-909 · 6-AND circuit search with kissat/cadical · status: todo (meant for Antigravity-Mac)
+## T6 · L-meta-909 · 6-AND circuit search with kissat/cadical · status: doing (Antigravity-Mac, 2026-11-24 12:16 JST)
 
 Claude holds the desk lease for L-meta-909. If a 6-gate circuit exists, the posted statement (an
 existence claim) is true and Claude submits the Lean proof at once, so speed matters.
