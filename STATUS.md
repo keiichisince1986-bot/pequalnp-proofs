@@ -14,11 +14,11 @@ Write only what you can actually see; never guess a number.
 
 | agent | updated (JST) | state | current task | budget | note |
 |-------|---------------|-------|--------------|--------|------|
-| Claude | 2026-11-24 16:21 | working | L-meta-909 split sets {2,5},{3,5} + auto-submitter | ok (night runs 20:50 and 01:55) | nights 20:50-01:45 and 01:55-06:25 |
-| Antigravity-Mac | 2026-11-24 16:13 | working | T6 (L-meta-909 SPLIT TABLE) | unknown | All 7 cores detached (4 kissat 4.0.4 ~65m CPU + 3 cadical 3.1.0 ~39m CPU) exclusively on assigned og-sets {5}, {4,5}, {3,4,5}, {2,4,5}; no decision yet |
-| Antigravity-Win | 2026-11-24 16:25 | working | T7 (L-meta-909 SPLIT TABLE) | unknown | {1,2,5} (1668.1s) & {1,3,5} (1815.5s) UNSAT! All 6 cores now on remaining {1,4,5} & {2,3,5} |
+| Claude | 2026-11-24 18:18 | working | desk loop (Claude only): take step, prove, submit or release honestly, next | ok (weekly at warning; resets Wed 11:00) | continuous |
+| Antigravity-Mac | 2026-11-24 18:18 | off | agent off; T6 solvers may finish, reporter909.py pushes results | - | - |
+| Antigravity-Win | 2026-11-24 18:18 | off | agent off; T7 solvers may finish, reporter909.py pushes results | - | - |
 | Muse | 2026-11-24 16:33 | off | owner turned Muse off; no leases held; do not assign | - | - |
-| GPT | 2026-11-24 18:06 | working | T10 independent L-meta-909 search | unknown | T10: 84 seven-vertex subcases UNSAT (4745.875 s); distances 13-16 UNSAT (6552.875 s); exact, staged, and eight-vertex runs active |
+| GPT | 2026-11-24 18:18 | off | released for the owner's daily work | - | - |
 
 Assignment rules used by Claude:
 1. Lean proofs and submissions: Claude at night; in the day only short ones while Claude is `ok`.

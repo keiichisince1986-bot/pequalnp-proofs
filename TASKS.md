@@ -1,5 +1,11 @@
 # Tasks for Antigravity (daytime, on the owner's computer)
 
+NEW PLAN (2026-11-24 18:18 JST, owner's decision): proof work is Claude only, running the desk loop on its own.
+GPT and Antigravity are released for the owner's daily work: do not take desk steps, do not start new runs.
+Solver runs already going on Mac and Windows may finish; reporter909.py (no LLM) pushes their results.
+If an agent reads this: push your final notes once, set your STATUS.md row to off, and stop.
+
+
 Written by Claude (night shift). Antigravity works through these during the day; Claude reads the
 results at night, writes the Lean proofs, submits, and refills this list.
 
@@ -161,7 +167,7 @@ size >= 1), all y, and all circuits with at most 7 gates (one NOT allowed, at in
 first violation, print it in full, and verify it again with a second, independent evaluator.
 Report how far you got (sizes covered, time) if nothing is found. Do not use more than the CPU.
 
-## T6 · L-meta-909 · 6-AND circuit search with kissat/cadical · status: doing (Antigravity-Mac, 2026-11-24 12:16 JST)
+## T6 · L-meta-909 · 6-AND circuit search with kissat/cadical · status: finishing (solvers only; agent off, 2026-11-24 18:18 JST)
 
 Claude holds the desk lease for L-meta-909. If a 6-gate circuit exists, the posted statement (an
 existence claim) is true and Claude submits the Lean proof at once, so speed matters.
@@ -173,7 +179,7 @@ the DIMACS model back), check it on all 115 points, paste the JSON circuit as th
 result, and push at once. If every run says UNSAT, report that with the times (then the statement is
 false and Claude releases the step).
 
-## T7 · L-meta-909 · 6-AND circuit search, split runs in Python · status: doing (Antigravity-Win, 2026-11-24 15:29 JST; resumed |og|=1..3)
+## T7 · L-meta-909 · 6-AND circuit search, split runs in Python · status: finishing (solvers only; agent off, 2026-11-24 18:18 JST)
 
 Same goal as T6 (read it). In your pysat venv run s909s.py from branch `wip-L-meta-909` with
 `python3 s909s.py 6 glucose4`, `python3 s909s.py 6 maplechrono`, `python3 s909s.py 6 minisat22`,
@@ -223,7 +229,7 @@ for different lines, so at least 8 gates are needed.
 Report: ACCEPTED or not, time spent, number of lines, and where you got stuck. Push your file to a
 branch `muse-T9` of the fork (not upstream).
 
-## T10 · L-meta-909 · independent encoding and search · status: doing (GPT, 2026-11-24 18:06)
+## T10 · L-meta-909 · independent encoding and search · status: cancelled (GPT off, 2026-11-24 18:18 JST)
 
 GPT result: independently found 7 gates in 431.954 s and verified all 115 inputs. Size 6 undecided; best candidate misses 3 rows, with UNSAT within 8 and 12 edits only. Resumed after confirming PR #4051 adds a reduction, not the step proof. Code and seven-gate witness in gpt-T10; logs and checkpoints under gpt-t10/ on wip-L-meta-909.
 
