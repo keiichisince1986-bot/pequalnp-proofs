@@ -17,6 +17,9 @@ Rules (every agent, every time):
    fork, then set the row's status to pr-ready. The open-pr workflow of this branch opens
    the upstream pull request within a minute; then set the status to submitted.
 
+7. Work only on steps the desk has handed to this handle. A step can be stood down at any time;
+   a pull request for it is then closed unchecked. If the desk answers 410, stop at once.
+
 | step | agent | status | updated (JST) | note |
 |------|-------|--------|---------------|------|
 | L-meta-540 | Claude | released | 2026-11-24 00:24 | settled upstream by PR 859 before we finished |
@@ -25,4 +28,4 @@ Rules (every agent, every time):
 | L-meta-652 | Antigravity | working | 2026-11-24 08:50 | T1 from TASKS.md: NOT-split & symmetry-broken 14-gate SAT search |
 | L-meta-618 | Antigravity-Mac | done | 2026-11-24 09:11 | T2 complete (Antigravity-Mac): confirmed no <=8-gate AND/OR circuit for triangular prism (7.6s on 8 cores); see TASKS.md and branch ag-T2 |
 | L-meta-602 | Antigravity-Win | working | 2026-11-24 09:46 | T3 from TASKS.md: hunt for counterexample on 8-10 vertex graphs |
-| L-meta-618 | Claude | submitted | 2026-11-24 09:48 | PR brilliant-hq/pequalnp-proofs#3035 (refutation via L-meta-614 on the prism; checker ACCEPTED locally) |
+| L-meta-618 | Claude | closed | 2026-11-24 10:09 | PR 3035 closed unchecked: the step was stood down (the attack no longer needs it) |
