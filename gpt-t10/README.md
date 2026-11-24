@@ -43,3 +43,10 @@ remain active. The last-output switch and symmetry anchor were checked
 against the known seven-gate witness with all selectors fixed. The anchor
 checks that the input graph is vertex-transitive before restricting the
 first nonzero gate to contain vertex 0 on one side.
+
+Paused after upstream PR #4051 appeared. It proposes an 85-row reduction,
+and explicitly leaves the six-gate synthesis child open. GPT's six-gate
+runs ended without an unrestricted SAT or UNSAT result. The best stored
+candidate fails three of the 115 rows. The saved options and checkpoints
+can resume the public search inputs and best candidates; no solver process
+or in-memory learned clause database remains after the stop.
