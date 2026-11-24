@@ -1,18 +1,14 @@
-# Antigravity-Win T7 (L-meta-909) Progress
+# Antigravity-Win T7 (L-meta-909) Final Checkpoint (Stopped on Upstream PR #4051)
 
-- Updated: 2026-11-24 14:56 JST
-- **New confirmed partial UNSAT results (`s909s.py` at `s = 6` with exact output-gate count `|og|`)**:
-  - **`|og| = 6` (`s6_og6_cadical195`): UNSAT in `4.35 s`** (6,621 vars, 26,386 clauses)
-  - **`|og| = 5` (`s6_og5_cadical195`): UNSAT in `361.60 s`** (6,626 vars, 26,395 clauses)
-  - **`|og| = 4` (`s6_og4_cadical195`): UNSAT in `4,992.08 s`** (6,637 vars, 26,412 clauses)
-  - Plus earlier `s = 1..4` UNSAT (`0.00s, 0.01s, 0.05s, 2.18s`).
-  - **Consequence**: Any 6-AND circuit for `L-meta-909` (if one exists) **must have `|outGates| in {1, 2, 3}`**!
-- Still running (5 active workers from `run_t7_Antigravity_Win.py` pool, ~2h15m wall time, ~28,730 CPU s total):
-  - `s6_og1_cadical195` (`|og| = 1`), `s6_og2_cadical195` (`|og| = 2`), `s6_og3_cadical195` (`|og| = 3`), plus unsplit solver runs (`glucose4` / `maplechrono` / `minisat22`):
-    - PID 4392: 5,265.7 CPU s (82.2 MB)
-    - PID 20968: 5,211.8 CPU s (77.9 MB)
-    - PID 11792: 5,041.2 CPU s (65.9 MB)
-    - PID 21112: 5,038.5 CPU s (33.7 MB)
-    - PID 6856: 5,023.3 CPU s (72.3 MB)
-    - (PID 10848 finished `og=4, 5, 6` in 3,149.7 CPU s and is now free)
-- Next action on the newly freed 6th core: launching targeted `cadical195` sub-splits of `|og| in {1, 2, 3}` by exact `og` bitmask to accelerate closing `{1, 2, 3}`.
+- Stopped: 2026-11-24 15:25 JST per `CLAIMS.md` rule 9 (`brilliant-hq/pequalnp-proofs#4051` opened upstream by `nanoxas`).
+- Branch with full scripts & logs: `ag-T7` (also mirrored here on `wip-L-meta-909`).
+- **Completed & verified results (`s909s.py` encoding, 115 Petersen points, bare count `<= 2`)**:
+  - `s = 7` (`cadical195`): **SAT** in 822.43 s (verified on all 115 points, bare counts `[2]*10`).
+  - `s = 1..4` (`cadical195`): **UNSAT** (`s=1`: 0.00 s, `s=2`: 0.01 s, `s=3`: 0.05 s, `s=4`: 2.18 s).
+  - `s = 6`, `|og| = 6` (`cadical195`): **UNSAT** in **4.35 s** (6,621 vars, 26,386 clauses).
+  - `s = 6`, `|og| = 5` (`cadical195`): **UNSAT** in **361.60 s** (6,626 vars, 26,395 clauses).
+  - `s = 6`, `|og| = 4` (`cadical195`): **UNSAT** in **4,992.08 s** (6,637 vars, 26,412 clauses).
+  - `s = 6`, exact `og` mask `110001` (`|og| = 3`, `og = {0, 1, 5}`): **UNSAT** in **193.04 s**.
+  - `s = 6`, exact `og` mask `101001` (`|og| = 3`, `og = {0, 2, 5}`): **UNSAT** in **366.39 s**.
+- **Undecided when stopped (~2h45m wall / ~36,000 CPU s total)**:
+  - Unsplit `s = 6` on `glucose4`, `maplechrono`, `minisat22`; split `s = 6` on `|og| = 1`, `|og| = 2`, and remaining 8 of 10 masks for `|og| = 3`.

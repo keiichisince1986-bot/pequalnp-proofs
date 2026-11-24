@@ -1,0 +1,3 @@
+{"label": "s6_ogmask_110001", "og_count": 3, "og_mask": "110001", "solver": "cadical195", "status": "UNSAT", "time": 193.04}
+{"label": "s6_ogmask_101001", "og_count": 3, "og_mask": "101001", "solver": "cadical195", "status": "UNSAT", "time": 366.39}
+{"label": "s6_ogmask_100101", "og_count": 3, "og_mask": "100101", "solver": "cadical195", "status": "UNSAT", "time": 1020.17}
