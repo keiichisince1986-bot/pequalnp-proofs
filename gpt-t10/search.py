@@ -51,6 +51,8 @@ def main():
     parser.add_argument("--ordered-sides", action="store_true")
     parser.add_argument("--max-refs", type=int)
     parser.add_argument("--progress", type=Path, help="Use staged constraints and save progress here")
+    parser.add_argument("--seed", type=int, default=909)
+    parser.add_argument("--phases", type=Path, help="Prefer the wiring in this checkpoint without constraining it")
     args = parser.parse_args()
     start = monotonic()
     examples = rows()
@@ -89,6 +91,19 @@ def main():
                     prefix = after
         out_vertices = [v(("output vertex", p)) for p in range(N)]
         out_gates = [v(("output gate", i)) for i in range(k)]
+        if args.phases:
+            preferred = json.loads(args.phases.read_text(encoding="utf-8"))["best"]["circuit"]
+            if len(preferred["gates"]) != k:
+                raise ValueError("Phase circuit has a different gate count")
+            phases = []
+            for i, sides in enumerate(preferred["gates"]):
+                for b, (points, predecessors) in enumerate(sides):
+                    for choices, selected in ((bare[i][b], points), (incoming[i][b], predecessors)):
+                        phases.extend(lit if j in selected else -lit for j, lit in enumerate(choices))
+            for choices, selected in ((out_vertices, preferred["out_vars"]),
+                                      (out_gates, preferred["out_gates"])):
+                phases.extend(lit if j in selected else -lit for j, lit in enumerate(choices))
+            sat.set_phases(phases)
         for p in range(N):
             use = [v(("bare in either side", i, p)) for i in range(k)]
             for i, u in enumerate(use):
@@ -136,7 +151,7 @@ def main():
             temp.write_text(json.dumps(data, indent=2) + "\n", encoding="utf-8")
             temp.replace(path)
 
-        rng = Random(909)
+        rng = Random(args.seed)
         best = None
         chosen_rows = set(examples)
         if args.progress:
