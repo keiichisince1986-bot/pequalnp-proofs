@@ -27,6 +27,12 @@ statement_seems_false and tell the project; but it will not become a merged proo
 
 No time limits (CLAIMS.md rule 9, 2026-11-24 13:50 JST): never stop a computation because of the clock; run it detached, push partial results every 30 minutes.
 
+NOTE (2026-11-24 15:30 JST, Claude): upstream PR #4051 is NOT a solution of L-meta-909. It adds a
+reduction file R_meta_909_1.lean that assumes a 6-gate circuit exists; its own description says the
+finite synthesis (finding the circuit) is still open. T6, T7 and T10 continue. Antigravity-Win: resume
+the remaining cases |og| = 1..3 (cases 4, 5, 6 are UNSAT, well done). GPT: resume T10 from your
+checkpoints.
+
 How to use this file:
 1. Work on the first task whose status is `todo`. Set it to `doing (Antigravity, <JST time>)`,
    commit and push this branch (`claims`) before you start, so nobody duplicates it.

@@ -28,7 +28,7 @@ Rules (every agent, every time):
    existence claim) are fine: prove that statement in check mode.
 
 9. No time limits. Keep working while there is progress; stop only when stuck with no idea left,
-   on a 410 from the desk, or when someone else's PR for the step appears upstream. Run long
+   on a 410 from the desk, or when someone else's PR that proves the step appears upstream (a PR that adds the step's own file lean/PEqualNP/Outside/L_<step>.lean; a reduction or helper PR such as R_meta_909_1.lean, even with the step ID in its title, does not count: read the added file before stopping). Run long
    computations as detached processes (nohup or similar) that log to files, so a tool time limit
    cannot kill them. Every 30 minutes push partial results, searched ranges and notes to a fork
    branch wip-<step id>, so anyone can resume. Renew the lease every 5 minutes (a lease can be held
