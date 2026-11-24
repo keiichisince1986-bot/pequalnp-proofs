@@ -166,7 +166,7 @@ the DIMACS model back), check it on all 115 points, paste the JSON circuit as th
 result, and push at once. If every run says UNSAT, report that with the times (then the statement is
 false and Claude releases the step).
 
-## T7 · L-meta-909 · 6-AND circuit search, split runs in Python · status: paused (Antigravity-Win, 2026-11-24 15:26 JST; upstream PR #4051)
+## T7 · L-meta-909 · 6-AND circuit search, split runs in Python · status: doing (Antigravity-Win, 2026-11-24 15:29 JST; resumed |og|=1..3)
 
 Same goal as T6 (read it). In your pysat venv run s909s.py from branch `wip-L-meta-909` with
 `python3 s909s.py 6 glucose4`, `python3 s909s.py 6 maplechrono`, `python3 s909s.py 6 minisat22`,
