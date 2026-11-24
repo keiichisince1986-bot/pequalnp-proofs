@@ -1,0 +1,12 @@
+{
+  "startedUtc": "2026-11-24T13:39:34.9238353+07:00",
+  "script": "search.py",
+  "arguments": [
+    "6",
+    "--minimal-positive",
+    "--phases=run6-relocate2/checkpoint.json",
+    "--focus-sweep=6",
+    "--focus-checkpoint=run6-focus6/checkpoint.json",
+    "--witness=run6-focus6/witness.json"
+  ]
+}

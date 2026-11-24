@@ -63,3 +63,12 @@ positive mask contains a retained mask. Since the gates are monotone,
 these rows suffice; any witness is still verified on all 115 rows.
 A third run searches 13 through 16 selector edits from the saved
 three-error circuit, skipping the previously excluded radius 12.
+
+All three misses of the best stored circuit are positive, in the 85-row
+basis, and contain vertex 5. Holding the bare placements of the other
+vertices fixed while freeing all predecessor and output links gives
+UNSAT for every case with vertex 5 and up to four other movable vertices
+(126 maximal cases of five movable vertices). A six-movable-vertex sweep
+reuses one SAT instance with assumptions and writes completed UNSAT cases
+to an atomic checkpoint, so those subcases can be skipped on resume.
+These are restricted results, not a whole-size-six UNSAT claim.

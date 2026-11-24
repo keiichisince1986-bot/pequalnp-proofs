@@ -1,0 +1,27 @@
+Allowing bare vertices 5 and 0 to move
+size=6 solver=cadical195 rows=85 variables=4896
+UNSAT elapsed=0.078s
+Allowing bare vertices 5 and 1 to move
+size=6 solver=cadical195 rows=85 variables=4896
+UNSAT elapsed=0.094s
+Allowing bare vertices 5 and 2 to move
+size=6 solver=cadical195 rows=85 variables=4896
+UNSAT elapsed=0.109s
+Allowing bare vertices 5 and 3 to move
+size=6 solver=cadical195 rows=85 variables=4896
+UNSAT elapsed=0.094s
+Allowing bare vertices 5 and 4 to move
+size=6 solver=cadical195 rows=85 variables=4896
+UNSAT elapsed=0.094s
+Allowing bare vertices 5 and 6 to move
+size=6 solver=cadical195 rows=85 variables=4896
+UNSAT elapsed=0.063s
+Allowing bare vertices 5 and 7 to move
+size=6 solver=cadical195 rows=85 variables=4896
+UNSAT elapsed=0.250s
+Allowing bare vertices 5 and 8 to move
+size=6 solver=cadical195 rows=85 variables=4896
+UNSAT elapsed=0.063s
+Allowing bare vertices 5 and 9 to move
+size=6 solver=cadical195 rows=85 variables=4896
+UNSAT elapsed=0.125s
