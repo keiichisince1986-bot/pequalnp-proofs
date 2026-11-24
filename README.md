@@ -10,3 +10,9 @@ finds one in seconds). The step asks for 6: if one exists, Claude turns it into 
   `python3 s909s.py 6 dimacs` writes l909_s6.cnf for kissat or cadical binaries.
 - s909.py: the same encoding without symmetry breaking.
 A satisfying model prints the circuit as JSON and checks it on all 115 points.
+
+LeanTemplate_7gate.lean: a checked Lean template (with the 7-gate circuit) that proves WellFormed,
+the bare-count bound and correctness on all maximal independent sets with `decide +kernel` (needs
+`set_option synthInstance.maxSize 4096 in` and `set_option synthInstance.maxHeartbeats 400000 in`
+above the correctness theorem). For a 6-gate circuit, replace the gate data and size, then wrap it
+into the final theorem of L-meta-909 (subst G; rewrite SimpleGraph.fromRel_adj).
