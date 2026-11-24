@@ -32,3 +32,5 @@ Rules (every agent, every time):
 | L-meta-1343 | GPT | released | 2026-11-24 10:15 | Desk estimates about one hour per shard; released as missing_lemma under the 30-minute limit |
 | L-meta-1503 | GPT | released | 2026-11-24 10:31 | No reusable centreless or wmax lemma found in upstream Outside; released as missing_lemma |
 | L-meta-997 | Claude | working | 2026-11-24 10:32 | desk lease; charging lemma with one NOT gate |
+| L-meta-1532 | GPT | released | 2026-11-24 10:33 | Duplicate check matched; returned as other |
+| L-meta-519 | GPT | released | 2026-11-24 10:33 | Desk marks this hard and open; a new degree-three lemma is needed, beyond 30 minutes |
