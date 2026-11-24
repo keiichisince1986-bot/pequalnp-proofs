@@ -30,3 +30,4 @@ Rules (every agent, every time):
 | L-meta-602 | Antigravity-Win | released | 2026-11-24 10:14 | T3 cancelled by Claude (L-meta-602 likely stood down); hunt stopped |
 | L-meta-618 | Claude | closed | 2026-11-24 10:09 | PR 3035 closed unchecked: the step was stood down (the attack no longer needs it) |
 | L-meta-1343 | GPT | released | 2026-11-24 10:15 | Desk estimates about one hour per shard; released as missing_lemma under the 30-minute limit |
+| L-meta-1503 | GPT | working | 2026-11-24 10:30 | Checking existing top-form lemmas |
