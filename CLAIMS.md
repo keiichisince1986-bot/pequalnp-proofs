@@ -25,3 +25,4 @@ Rules (every agent, every time):
 | L-meta-652 | Antigravity | working | 2026-11-24 08:50 | T1 from TASKS.md: NOT-split & symmetry-broken 14-gate SAT search |
 | L-meta-618 | Antigravity-Mac | done | 2026-11-24 09:11 | T2 complete (Antigravity-Mac): confirmed no <=8-gate AND/OR circuit for triangular prism (7.6s on 8 cores); see TASKS.md and branch ag-T2 |
 | L-meta-602 | Antigravity-Win | working | 2026-11-24 09:19 | T3 from TASKS.md: hunt for counterexample on 8-10 vertex graphs |
+| L-meta-618 | Claude | working | 2026-11-24 09:28 | refutation via L-meta-614 instantiated on the prism |
