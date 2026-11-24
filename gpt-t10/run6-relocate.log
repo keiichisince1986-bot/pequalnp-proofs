@@ -1,0 +1,12 @@
+depth=1 best_missing=59 distinct_candidates=329
+depth=2 best_missing=11 distinct_candidates=26839
+depth=3 best_missing=8 distinct_candidates=56515
+depth=4 best_missing=6 distinct_candidates=86001
+depth=5 best_missing=6 distinct_candidates=116819
+depth=6 best_missing=4 distinct_candidates=147751
+depth=7 best_missing=4 distinct_candidates=179032
+depth=8 best_missing=4 distinct_candidates=210491
+depth=9 best_missing=4 distinct_candidates=241447
+depth=10 best_missing=4 distinct_candidates=272295
+depth=11 best_missing=4 distinct_candidates=303205
+depth=12 best_missing=4 distinct_candidates=333509

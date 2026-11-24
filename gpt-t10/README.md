@@ -26,3 +26,7 @@ selects all gates that are false on every negative row. This choice preserves
 satisfiability because adding such output gates cannot change a negative
 row or turn a positive row false. Its starting phases prefer a saved candidate
 without imposing it as a hard constraint.
+
+The second saved SAT candidate missed 6 rows. Local rewiring with automatic
+selection of negative-safe outputs reduced that to 3 missed rows. See the
+relocate checkpoint for the circuit. Exact size-six runs are still unresolved.
