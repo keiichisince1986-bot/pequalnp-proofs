@@ -9,6 +9,17 @@ The public site still shows such steps as open; only the desk knows. So: only th
 steps are live. Search and verification tasks here are preparation; Claude submits only for a step
 the desk has handed out. If the desk answers 410 for a step, that step is dead: stop work on it.
 
+Machines and roles (from T4, set by Claude 2026-11-24):
+- Antigravity-Mac: MacBook Pro M1 (4 performance + 4 efficiency cores), 16 GB, never sleeps, has
+  Lean 4.36 with Mathlib, kissat, cadical, clang, and gh signed in. Role: the strong worker. Lean work
+  and runs of tools/check-lean.mjs, SAT runs with kissat/cadical, C programs. Fallback for opening a
+  pull request (gh) when the claims workflow is down. Keep at most two heavy jobs at once.
+- Antigravity-Win: Dell Inspiron 5405, Ryzen 5 4500U (6 cores, laptop), 16 GB, never sleeps, has
+  Python 3.12 with python-sat and networkx in a venv; no C compiler, no Lean, no gh. Role: long
+  background jobs in Python (pysat searches, enumerations, independent re-checks). If a task needs
+  speed, install a C compiler (for example via winget, LLVM) or hand it to the Mac.
+- Claude (cloud, nights): proofs in Lean, final checks, submission through CLAIMS.md pr-ready.
+
 How to use this file:
 1. Work on the first task whose status is `todo`. Set it to `doing (Antigravity, <JST time>)`,
    commit and push this branch (`claims`) before you start, so nobody duplicates it.
