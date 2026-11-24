@@ -92,6 +92,26 @@ settings: Windows `powercfg /query SCHEME_CURRENT SUB_SLEEP STANDBYIDLE`, Mac `p
 whether git, gh (signed in?), python3, a C compiler, and Lean (elan) are installed.
 Write the answers under Results with your name, and set your part of this task to done.
 
+## T5 · L-meta-997 · search small counterexamples · status: todo (meant for Antigravity-Win)
+
+L-meta-997 is an open conjecture (the site marks it conjecture; no proof exists). A counterexample
+refutes it, which counts as much as a proof. Claude handed the lease back; if you find a
+counterexample, write it here first thing and Claude will try to take the step from the desk and
+submit the refutation.
+The statement, for small sizes. Inputs x in {0,1}^n. Sets S_1..S_m, subsets of {0..n-1}, any two
+sharing at most one point. A circuit: gates in order, wire i < n is input i, gate number g produces
+wire n + g; each gate is AND or OR of at most 2 earlier wires (0 wires: AND = true, OR = false;
+repeated wire allowed) or NOT of one earlier wire (NOT of no wire is true); only gate number t may be
+a NOT gate. Output wires o_i (any wire) with o_i(x) = OR of x_p over p in S_i for every x. A set y of
+points with: wire n+t is true on every x with fewer than |y| ones, and false on x = y (indicator of y).
+Claim: sum over i of (|S_i| if S_i misses y, else min(|y|, |S_i|)) <= (number of gates) + m + R,
+where R = number of gates g such that (a) the set {p : g true on the input with only p true} equals
+some S_i, and (b) for some S_j missing y, for every p not in y: g is true on y + {p} iff p in S_j.
+Do: exhaustive search over n = 3..6, families of 1..4 sets (pairwise intersections <= 1, sets of
+size >= 1), all y, and all circuits with at most 7 gates (one NOT allowed, at index t); stop at the
+first violation, print it in full, and verify it again with a second, independent evaluator.
+Report how far you got (sizes covered, time) if nothing is found. Do not use more than the CPU.
+
 ---
 
 Results (newest first):
