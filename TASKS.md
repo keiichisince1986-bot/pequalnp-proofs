@@ -155,6 +155,29 @@ and also split the search: add one extra unit clause per run that fixes how many
 are (exactly 1, 2, or 3 via the og variables) and run those cases on separate cores. Report each run:
 SAT (paste the JSON circuit first, checked on all 115 points) or UNSAT with time.
 
+## T8 · Muse's standing role: desk steps with Lean · status: todo (meant for Muse)
+
+Muse has Lean 4.36 with Mathlib, a C compiler and Python, and can work for hours, so Muse is the
+second Lean prover of the team (Claude is the first, at night).
+First: stop L-lib-124. Another participant's pull request (#2160, still open) already targets it,
+and rule (a) of CLAIMS.md says to skip such steps. If you hold a desk lease for it, release it with
+reason other. If you worked on it without a desk lease, note that rule 7 of CLAIMS.md allows work only
+on steps the desk has handed to this handle.
+Then, in a loop until told to stop:
+1. Ask the desk for a step (next?handle=keiichisince1986-bot&another=1). Check at once: an upstream
+   PR with that ID in the title, a working row by another agent in CLAIMS.md, or a context that says
+   conjecture / no argument / hours / private notes (routes/, notes/reduction-machine/, reviews/).
+   If any applies, release with reason other and ask again.
+2. Search the proved lemmas upstream (lean/PEqualNP/Outside/, lean/PEqualNP/MetaComplexity/): often a
+   step is an instance of a proved theorem. If the posted statement is the negation of a proved
+   theorem, release with statement_seems_false (rule 8: refutations are never accepted).
+3. Add your row to CLAIMS.md, prove the posted statement, run `node tools/check-lean.mjs <file>
+   <statement file> check` until ACCEPTED, push the branch named after the step (one commit, one
+   file, from the latest upstream main) to the fork, set your row to pr-ready, wait for the PR, then
+   release the lease as submitted. Give up after about 30 minutes of no progress and release honestly.
+4. If the desk has nothing, run `bash bin/wait-task.sh Muse 5` and go back to step 1.
+Keep your STATUS.md row current.
+
 ---
 
 Results (newest first):
