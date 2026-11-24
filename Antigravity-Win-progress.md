@@ -1,14 +1,20 @@
-# Antigravity-Win T7 (L-meta-909) Final Checkpoint (Stopped on Upstream PR #4051)
+# Antigravity-Win T7 (L-meta-909) Progress (SPLIT TABLE Assignment)
 
-- Stopped: 2026-11-24 15:25 JST per `CLAIMS.md` rule 9 (`brilliant-hq/pequalnp-proofs#4051` opened upstream by `nanoxas`).
-- Branch with full scripts & logs: `ag-T7` (also mirrored here on `wip-L-meta-909`).
-- **Completed & verified results (`s909s.py` encoding, 115 Petersen points, bare count `<= 2`)**:
-  - `s = 7` (`cadical195`): **SAT** in 822.43 s (verified on all 115 points, bare counts `[2]*10`).
-  - `s = 1..4` (`cadical195`): **UNSAT** (`s=1`: 0.00 s, `s=2`: 0.01 s, `s=3`: 0.05 s, `s=4`: 2.18 s).
-  - `s = 6`, `|og| = 6` (`cadical195`): **UNSAT** in **4.35 s** (6,621 vars, 26,386 clauses).
-  - `s = 6`, `|og| = 5` (`cadical195`): **UNSAT** in **361.60 s** (6,626 vars, 26,395 clauses).
-  - `s = 6`, `|og| = 4` (`cadical195`): **UNSAT** in **4,992.08 s** (6,637 vars, 26,412 clauses).
-  - `s = 6`, exact `og` mask `110001` (`|og| = 3`, `og = {0, 1, 5}`): **UNSAT** in **193.04 s**.
-  - `s = 6`, exact `og` mask `101001` (`|og| = 3`, `og = {0, 2, 5}`): **UNSAT** in **366.39 s**.
-- **Undecided when stopped (~2h45m wall / ~36,000 CPU s total)**:
-  - Unsplit `s = 6` on `glucose4`, `maplechrono`, `minisat22`; split `s = 6` on `|og| = 1`, `|og| = 2`, and remaining 8 of 10 masks for `|og| = 3`.
+- Updated: 2026-11-24 15:56 JST
+- **Assigned output-gate sets from `TASKS.md` SPLIT TABLE**: `{1,2,5}`, `{1,3,5}`, `{1,4,5}`, `{2,3,5}` (running exclusively on 6 cores with `cadical195`, `run_t7_assigned_Antigravity_Win.py`).
+  - Core 1: `og = {1,2,5}` (+ sound unit break `v('L', 5, 'gate', 4)` since `og_4 == 0`)
+  - Core 2: `og = {1,3,5}` (+ `v('L', 5, 'gate', 4)`)
+  - Core 3: `og = {2,3,5}` (+ `v('L', 5, 'gate', 4)`)
+  - Core 4: `og = {1,4,5}` full
+  - Core 5: `og = {1,4,5}` branch A (`v('L', 5, 'gate', 4)` — gate 5 reads gate 4, WLOG on `L_5`)
+  - Core 6: `og = {1,4,5}` branch B (`-v('L', 5, 'gate', 4), -v('R', 5, 'gate', 4)` — gate 5 does not read gate 4)
+- Active workers (~23m wall time on assigned sets, ~3,643 CPU s on this phase / ~39,600 CPU s cumulative on T7):
+  - PIDs `10620` (771.6s), `13036` (770.3s), `24072` (769.0s), `11612` (448.3s), `17616` (442.9s), `24132` (440.9s)
+- **Previously completed & verified UNSAT results by Antigravity-Win**:
+  - `s = 1..4`: UNSAT (`0.00s, 0.01s, 0.05s, 2.18s`); `s = 7`: SAT verified on all 115 points (`822.43s`).
+  - `s = 6, |og| = 6`: **UNSAT** (`4.35 s`)
+  - `s = 6, |og| = 5`: **UNSAT** (`361.60 s`)
+  - `s = 6, |og| = 4`: **UNSAT** (`4,992.08 s`)
+  - `s = 6, og = {0,1,5}` (`110001`): **UNSAT** (`193.04 s`)
+  - `s = 6, og = {0,2,5}` (`101001`): **UNSAT** (`366.39 s`)
+- Completed decisions on `{1,2,5}, {1,3,5}, {1,4,5}, {2,3,5}` so far: none yet (`t7_assigned_results.jsonl` awaiting first completion).
