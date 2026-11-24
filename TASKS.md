@@ -103,7 +103,7 @@ settings: Windows `powercfg /query SCHEME_CURRENT SUB_SLEEP STANDBYIDLE`, Mac `p
 whether git, gh (signed in?), python3, a C compiler, and Lean (elan) are installed.
 Write the answers under Results with your name, and set your part of this task to done.
 
-## T5 · L-meta-997 · search small counterexamples · status: todo (meant for Antigravity-Win)
+## T5 · L-meta-997 · search small counterexamples · status: doing (Antigravity-Win, 2026-11-24 10:38 JST)
 
 L-meta-997 is an open conjecture (the site marks it conjecture; no proof exists). A counterexample
 refutes it, which counts as much as a proof. Claude handed the lease back; if you find a
