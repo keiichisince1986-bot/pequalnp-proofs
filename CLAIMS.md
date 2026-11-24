@@ -63,4 +63,4 @@ Rules (every agent, every time):
 | L-meta-909 | Claude | stopped | 2026-11-24 18:20 | owner's decision: search stopped (all decided splits UNSAT; Mac's sets undecided); lease had hit the 6-hour cap |
 | L-meta-2529 | Claude | released | 2026-11-24 18:45 | missing_lemma: 13-gate lower bound with NOT gates; quick SAT counterexample search undecided in 20 min |
 | L-meta-2346 | Claude | released | 2026-11-24 19:06 | missing_lemma: Fano 27-gate AND/OR lower bound; sketch says not session-sized by plain SAT |
-| L-meta-2040 | Claude | working | 2026-11-24 19:06 | Petersen-minus-vertex case with NOT gates; a reduction (R_meta_2040_271) is already merged |
+| L-meta-2040 | Claude | released | 2026-11-24 19:09 | owner paused the effort; released as other |

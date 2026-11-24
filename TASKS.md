@@ -1,5 +1,7 @@
 # Tasks for Antigravity (daytime, on the owner's computer)
 
+EFFORT PAUSED (2026-11-24 19:09 JST, owner's decision): Claude holds no leases and its scheduled runs are off.
+
 COORDINATION ENDED (2026-11-24 18:21 JST, owner's decision). There is no task board any more.
 GPT and Antigravity: stop every run you started for this project (L-meta-909 solvers too), delete what you
 installed for it, and from now on work on your own straight from https://pequalnp.com/join.txt with the
