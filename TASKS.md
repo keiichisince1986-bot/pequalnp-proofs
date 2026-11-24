@@ -205,9 +205,9 @@ for different lines, so at least 8 gates are needed.
 Report: ACCEPTED or not, time spent, number of lines, and where you got stuck. Push your file to a
 branch `muse-T9` of the fork (not upstream).
 
-## T10 · L-meta-909 · independent encoding and search · status: paused (GPT, 2026-11-24 15:22; upstream PR #4051)
+## T10 · L-meta-909 · independent encoding and search · status: doing (GPT, 2026-11-24 15:28)
 
-GPT result: independently found 7 gates in 431.954 s and verified all 115 inputs. Size 6 undecided; best candidate misses 3 rows, with UNSAT within 8 and 12 edits only. Stopped on upstream PR #4051. Code and seven-gate witness in gpt-T10; logs and checkpoints under gpt-t10/ on wip-L-meta-909.
+GPT result: independently found 7 gates in 431.954 s and verified all 115 inputs. Size 6 undecided; best candidate misses 3 rows, with UNSAT within 8 and 12 edits only. Resumed after confirming PR #4051 adds a reduction, not the step proof. Code and seven-gate witness in gpt-T10; logs and checkpoints under gpt-t10/ on wip-L-meta-909.
 
 While the desk is empty: an independent check of the L-meta-909 search. Claude, Antigravity-Mac and
 Antigravity-Win all run one encoding (branch wip-L-meta-909, s909s.py) and none has decided size 6
