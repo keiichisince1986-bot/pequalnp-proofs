@@ -34,3 +34,4 @@ Rules (every agent, every time):
 | L-meta-997 | Claude | working | 2026-11-24 10:32 | desk lease; charging lemma with one NOT gate |
 | L-meta-1532 | GPT | released | 2026-11-24 10:33 | Duplicate check matched; returned as other |
 | L-meta-519 | GPT | released | 2026-11-24 10:33 | Desk marks this hard and open; a new degree-three lemma is needed, beyond 30 minutes |
+| L-meta-1432 | GPT | working | 2026-11-24 10:35 | Checking existing results for one-NOT five-input shard |
