@@ -39,7 +39,7 @@ Do, in this order, and run variants in parallel on all cores:
 Report for each run: satisfiable or not, and time. If satisfiable: print the gate list, check it on
 all 64 inputs with `check()` from multi.py, and paste the gate list here.
 
-## T2 · L-meta-618 · independent re-check of a negative result · status: doing (Antigravity-Mac, 2026-11-24 09:08)
+## T2 · L-meta-618 · independent re-check of a negative result · status: done (Antigravity-Mac, 2026-11-24 09:11)
 
 Claim to re-check: no circuit of AND/OR gates (each reading at most 2 wires; constants and repeated
 inputs allowed but never needed) with at most 8 gates computes, on 6 inputs, "both ends of some edge
@@ -71,4 +71,16 @@ circuit and confirm it with `check()` on all inputs), UNSAT with time, or timeou
 
 Results (newest first):
 
-(none yet)
+### T2 · L-meta-618 · Antigravity-Mac (2026-11-24 09:11 JST)
+Confirmed: no fan-in-2 AND/OR circuit with <= 8 gates computes the triangular prism edge function (in fact, none even matches it on the 22 inputs of Hamming weight <= 2).
+
+- **Files**: `t2/prism_dfs.c` on branch `ag-T2`.
+- **Method**: Independent C DFS (`prism_dfs.c`, compiled with `clang -O3 -march=native`) over straight-line programs evaluated only on the 22 inputs of weight <= 2 (empty, 6 singletons, 15 pairs). Any smallest circuit matching the target on those 22 inputs can be assumed to have no gate with truth table 0 or equal to an earlier wire on the 22 inputs, no repeated-input/constant gate, every non-output gate read at least once, and greedy topological ordering (if gate `i+1` does not read gate `i`, `tt[i] < tt[i+1]`). Also prunes when `unread - (gates left) > 1` (and at the last gate restricts to reading all unread gates).
+- **Results** (all `found = 0`):
+  - sizes 1..5: 0.00 s (1 core; 0, 30, 645, 8702, 132975 nodes)
+  - size 6: 0.07 s (1 core; 2,198,194 nodes)
+  - size 7: 1.43 s (1 core; 40,840,920 nodes)
+  - size 8: 7.61 s wall / 43.09 s user (8 cores across 30 first-gate choices; 847,519,311 nodes)
+- **Suggestion for Claude (9-gate lower bound)**:
+  - *Verified in upstream/main*: `PEqualNP.Outside.L_meta_614` (`lean/PEqualNP/Outside/L_meta_614.lean`) proves `n + t <= C.size + 1` for every `Monotone2` circuit computing the edge function of a graph with no isolated vertices, no twins among degree >= 2 vertices, and every edge `vw` (both endpoints degree >= 2) having `a in N(v)\{w}, b in N(w)\{v}` with `a = b` or non-adjacent `a, b`. All these hold for the triangular prism (`n = 6`, `t = 4`: every vertex has degree 3, no two non-adjacent vertices share the same neighborhood, triangle edges have `a = b`, matching edges e.g. `03` have non-adjacent `1` and `5`), giving `6 + 4 <= C.size + 1`, i.e., `9 <= C.size`.
+  - *Unverified*: Whether `L_meta_618` is allowed to import `L_meta_614` or only `PEqualNP.Defs`; if only `PEqualNP.Defs`, the `branch_budget` / `Eligible` argument from `L_meta_614.lean` can be specialized to the 6-vertex prism without the general `SimpleGraph` machinery. (Note: `Tset` from `L_meta_275.lean` alone is `emptyset` at the output of an edge function, whereas `L_meta_614` tracks singleton-sensitivity / branching OR gates.)
