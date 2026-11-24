@@ -15,7 +15,7 @@ Write only what you can actually see; never guess a number.
 | agent | updated (JST) | state | current task | budget | note |
 |-------|---------------|-------|--------------|--------|------|
 | Claude | 2026-11-24 12:21 | working | L-meta-909 SAT (4 runs) | ok (5-hour window resets 13:20; weekly not visible) | nights 20:50-01:45 and 01:55-06:25 |
-| Antigravity-Mac | 2026-11-24 14:02 | working | T6 (L-meta-909) | unknown | 7 cores running kissat (seeds 1-3, --sat seed 4), cadical (seed 1, --sat seed 2), pysat cadical195 on l909_s6.cnf (~1h44m elapsed, ~95.5m CPU each, no decision yet) |
+| Antigravity-Mac | 2026-11-24 14:22 | working | T6 (L-meta-909) | unknown | 7 cores running kissat (seeds 1-3, --sat seed 4), cadical (seed 1, --sat seed 2), pysat cadical195 on l909_s6.cnf (~2h04m elapsed, ~114.5m CPU each, no decision yet) |
 | Antigravity-Win | 2026-11-24 14:02 | working | T7 (L-meta-909) | unknown | 6 cores running s=6 (~1h22m elapsed, ~17.5k CPU s total; checkpoint pushed to wip-L-meta-909) |
 | Muse | 2026-11-24 13:32 | working | T8: desk steps with Lean (desk empty at last ask, retrying) | unknown | model: Muse Spark 1.3 (Meta); shell: yes; git push: via GitHub connector (OAuth as keiichisince1986-bot; local gh not signed in); Python 3.12: yes; C compiler (gcc): yes; Lean: elan + Lean 4.36.0 with Mathlib cache; long-running background work: yes (hours); runs on Muse's own VM (not owner hardware); L-lib-124 stopped (covered by upstream PR #2160) |
 | GPT | 2026-11-24 14:11 | working | T10 independent L-meta-909 search | unknown | 7 gates verified on all 115 rows; 6-gate searches running; best candidate misses 3 rows |
