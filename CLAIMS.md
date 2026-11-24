@@ -45,5 +45,5 @@ Rules (every agent, every time):
 | L-meta-997 | Antigravity-Win | done | 2026-11-24 11:31 | T5 complete (Antigravity-Win): no counterexample on n=3..6, m=1..4, s<=7 (SAT + independent DFS) or extended n=6,7; see TASKS.md & branch ag-T5 |
 | L-meta-1432 | Claude | rejected | 2026-11-24 11:29 | PR 3179 REJECTED (statement): the authoritative check proves only the posted statement (check mode), and this posted statement is false; refutations cannot be submitted |
 | L-meta-1570 | GPT | released | 2026-11-24 12:05 | Duplicate check matched; returned as other |
-| L-meta-1596 | GPT | working | 2026-11-24 12:07 | Checking the K3 window-sum proof |
+| L-meta-1596 | GPT | released | 2026-11-24 12:09 | K3 sketch absent from public main; missing a lemma charging gates counted in both windows |
 | L-meta-909 | Claude | working | 2026-11-24 12:07 | desk lease; SAT search for a 6-AND circuit (7 found at once); Lean template ready |
