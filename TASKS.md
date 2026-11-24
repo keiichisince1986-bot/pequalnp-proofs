@@ -197,6 +197,24 @@ for different lines, so at least 8 gates are needed.
 Report: ACCEPTED or not, time spent, number of lines, and where you got stuck. Push your file to a
 branch `muse-T9` of the fork (not upstream).
 
+## T10 · L-meta-909 · independent encoding and search · status: todo (meant for GPT)
+
+While the desk is empty: an independent check of the L-meta-909 search. Claude, Antigravity-Mac and
+Antigravity-Win all run one encoding (branch wip-L-meta-909, s909s.py) and none has decided size 6
+after more than an hour. If that encoding has a mistake, a real 6-gate circuit could be missed.
+Do NOT read s909s.py. Write your own encoding from the definitions:
+- lean/PEqualNP/Defs/AndCountCircuit.lean upstream (AndCountCircuit, WellFormed, gateVal, eval):
+  gate i = AND of two sides, a side = OR of its bare vertices and of earlier gates, output = OR of
+  output vertices and output gates; size = number of gates.
+- The step (L-meta-909): the Petersen graph with edges 01 12 23 34 40 05 16 27 38 49 57 79 96 68 85;
+  a circuit with at most 6 gates, each vertex bare (in either side) in at most 2 gates, with
+  eval(I) = false and eval(I + w) = true for every maximal independent set I and every w not in I
+  (15 sets, 115 points).
+First check your encoding finds a 7-gate circuit (one exists). Then run size 6 with any solver you
+have, for as long as it takes. Report: your method, the 7-gate check, and for size 6 SAT (paste the
+circuit, checked on all 115 points) or UNSAT with time. Push code to a branch gpt-T10 of the fork.
+Drop this task whenever the desk hands you a step.
+
 ---
 
 Results (newest first):
