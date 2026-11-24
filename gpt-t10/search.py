@@ -25,6 +25,27 @@ def rows():
     return [(u, False) for u in negative] + [(u, True) for u in positive]
 
 
+def check_vertex_transitivity():
+    edges = {frozenset(e) for e in EDGES}
+    def adjacent(a, b):
+        return frozenset((a, b)) in edges
+    def extend(mapping, free):
+        if not free:
+            return True
+        i = len(mapping)
+        return any(extend(mapping + [u], free - {u}) for u in free
+                   if all(adjacent(i, j) == adjacent(u, v) for j, v in enumerate(mapping)))
+    return all(extend([u], set(range(N)) - {u}) for u in range(N))
+
+
+def minimal_positive_basis(examples):
+    positives = {u for u, desired in examples if desired}
+    minimal = {u for u in positives if not any(v != u and v & u == v for v in positives)}
+    assert len(minimal) == 70
+    assert all(any(v & u == v for v in minimal) for u in positives)
+    return [(u, desired) for u, desired in examples if not desired or u in minimal]
+
+
 def verify(circuit, examples):
     gates = circuit["gates"]
     for i, sides in enumerate(gates):
@@ -54,13 +75,25 @@ def main():
     parser.add_argument("--seed", type=int, default=909)
     parser.add_argument("--phases", type=Path, help="Prefer the wiring in this checkpoint without constraining it")
     parser.add_argument("--distance", type=int, help="Bound the number of wiring edits from --phases")
+    parser.add_argument("--min-distance", type=int, help="Skip already excluded wiring distances")
     parser.add_argument("--maximal-output", action="store_true",
                         help="Select all gates that are false on every negative input")
+    parser.add_argument("--last-output", action="store_true",
+                        help="Search the subclass where only the last gate is selected as output")
+    parser.add_argument("--anchor", action="store_true",
+                        help="Use Petersen vertex symmetry to fix one vertex of the first gate")
+    parser.add_argument("--minimal-positive", action="store_true",
+                        help="Encode only inclusion-minimal positive rows; verify on all rows")
     args = parser.parse_args()
-    if args.distance is not None and args.phases is None:
-        parser.error("--distance requires --phases")
+    if (args.distance is not None or args.min_distance is not None) and args.phases is None:
+        parser.error("Distance bounds require --phases")
+    if args.last_output and (args.size < 1 or args.maximal_output):
+        parser.error("--last-output requires at least one gate and excludes --maximal-output")
+    if args.anchor and (args.size < 1 or not check_vertex_transitivity()):
+        parser.error("Anchor needs a nonempty circuit and a vertex-transitive graph")
     start = monotonic()
     examples = rows()
+    basis = minimal_positive_basis(examples) if args.minimal_positive else examples
     k = args.size
     ids = IDPool()
     v = ids.id
@@ -79,6 +112,9 @@ def main():
 
         bare = [[[v(("bare", i, b, p)) for p in range(N)] for b in range(2)] for i in range(k)]
         incoming = [[[v(("read", i, b, j)) for j in range(i)] for b in range(2)] for i in range(k)]
+        if args.anchor:
+            add(bare[0][0])
+            add([bare[0][1][0]])
         if args.max_refs is not None:
             refs = [selected for gate in incoming for side in gate for selected in side]
             for c in CardEnc.atmost(refs, bound=args.max_refs, vpool=ids, encoding=EncType.seqcounter):
@@ -96,6 +132,10 @@ def main():
                     prefix = after
         out_vertices = [v(("output vertex", p)) for p in range(N)]
         out_gates = [v(("output gate", i)) for i in range(k)]
+        if args.last_output:
+            for selector in out_vertices + out_gates[:-1]:
+                add([-selector])
+            add([out_gates[-1]])
         if args.maximal_output:
             negatives = [mask for mask, desired in examples if not desired]
             for i, selected in enumerate(out_gates):
@@ -116,6 +156,10 @@ def main():
             if args.distance is not None:
                 for c in CardEnc.atmost([-p for p in phases], bound=args.distance,
                                         vpool=ids, encoding=EncType.seqcounter):
+                    add(c)
+            if args.min_distance is not None:
+                for c in CardEnc.atleast([-p for p in phases], bound=args.min_distance,
+                                         vpool=ids, encoding=EncType.seqcounter):
                     add(c)
         for p in range(N):
             use = [v(("bare in either side", i, p)) for i in range(k)]
@@ -166,10 +210,11 @@ def main():
 
         rng = Random(args.seed)
         best = None
-        chosen_rows = set(examples)
+        chosen_rows = set(basis)
         if args.progress:
-            chosen_rows = {(u, yes) for u, yes in examples if not yes}
-            chosen_rows.update(rng.sample([e for e in examples if e[1]], 24))
+            chosen_rows = {(u, yes) for u, yes in basis if not yes}
+            if not args.progress.exists():
+                chosen_rows.update(rng.sample([e for e in basis if e[1]], 24))
             if args.progress.exists():
                 previous = json.loads(args.progress.read_text(encoding="utf-8"))
                 config = (k, args.ordered_sides, args.max_refs)
