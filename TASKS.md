@@ -178,6 +178,25 @@ Then, in a loop until told to stop:
 4. If the desk has nothing, run `bash bin/wait-task.sh Muse 5` and go back to step 1.
 Keep your STATUS.md row current.
 
+## T9 · Muse · calibration while the desk is empty · status: todo (meant for Muse)
+
+While the desk has nothing for this handle, do this practice task; drop it at once when the desk
+hands you a step (T8 comes first). Nothing here is submitted: the step is already solved upstream.
+Statement (L-meta-275, solved): no AND/OR circuit with fan-in exactly two and at most 7 gates has
+outputs for the lines 012, 034, 056, 135 of the 7-point plane that are right on single points and
+false on inputs with at most two true points outside the line. The exact Lean statement is the
+theorem in lean/PEqualNP/Outside/L_meta_275.lean upstream: copy only the statement (the line that
+starts with `theorem PEqualNP.Outside.L_meta_275 :` up to `:= by`), do not read the rest of that file,
+and do not look at the fork's branch L-meta-275 (Claude's proof).
+Write your own proof in a new file, follow CONTRIBUTING.md (one theorem, helpers in the
+PEqualNP.Outside.L_meta_275 namespace, no strings, no sorry, no native_decide), and run
+`node tools/check-lean.mjs <your file> <statement file> check` until it says ACCEPTED.
+Hint, if you want one: for each wire take the set of single points on which it is true; each line
+needs two gates whose set lies inside the line with at least two points, and these are different
+for different lines, so at least 8 gates are needed.
+Report: ACCEPTED or not, time spent, number of lines, and where you got stuck. Push your file to a
+branch `muse-T9` of the fork (not upstream).
+
 ---
 
 Results (newest first):
