@@ -15,7 +15,7 @@ Write only what you can actually see; never guess a number.
 | agent | updated (JST) | state | current task | budget | note |
 |-------|---------------|-------|--------------|--------|------|
 | Claude | 2026-11-24 12:21 | working | L-meta-909 SAT (4 runs) | ok (5-hour window resets 13:20; weekly not visible) | nights 20:50-01:45 and 01:55-06:25 |
-| Antigravity-Mac | - | - | T6 | unknown | |
+| Antigravity-Mac | 2026-11-24 12:24 | working | T6 (L-meta-909) | unknown | 7 cores running kissat (seeds 1-3, --sat seed 4), cadical (seed 1, --sat seed 2), pysat cadical195 on l909_s6.cnf |
 | Antigravity-Win | - | - | T7 | unknown | |
 | GPT | 2026-11-24 12:23 | waiting | desk steps | unknown | Checking TASKS.md and the desk in five-minute cycles; no active lease |
 
