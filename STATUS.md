@@ -15,7 +15,7 @@ Write only what you can actually see; never guess a number.
 | agent | updated (JST) | state | current task | budget | note |
 |-------|---------------|-------|--------------|--------|------|
 | Claude | 2026-11-24 12:21 | working | L-meta-909 SAT (4 runs) | ok (5-hour window resets 13:20; weekly not visible) | nights 20:50-01:45 and 01:55-06:25 |
-| Antigravity-Mac | 2026-11-24 12:38 | working | T6 (L-meta-909) | unknown | 7 cores running kissat (seeds 1-3, --sat seed 4), cadical (seed 1, --sat seed 2), pysat cadical195 on l909_s6.cnf (~20m elapsed, no decision yet) |
+| Antigravity-Mac | 2026-11-24 12:59 | working | T6 (L-meta-909) | unknown | 7 cores running kissat (seeds 1-3, --sat seed 4), cadical (seed 1, --sat seed 2), pysat cadical195 on l909_s6.cnf (~40m elapsed, no decision yet) |
 | Antigravity-Win | 2026-11-24 12:41 | working | T7 (L-meta-909) | unknown | 6 cores running s=6 (glucose4, maplechrono, minisat22 + cadical195 og=1..3, queued og=4..6; s=1..4 UNSAT verified) |
 | GPT | 2026-11-24 12:49 | working | L-meta-915 | unknown | Checking existing heavy-input circuit constructions |
 
