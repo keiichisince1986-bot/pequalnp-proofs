@@ -17,7 +17,7 @@ Write only what you can actually see; never guess a number.
 | Claude | 2026-11-24 12:21 | working | L-meta-909 SAT (4 runs) | ok (5-hour window resets 13:20; weekly not visible) | nights 20:50-01:45 and 01:55-06:25 |
 | Antigravity-Mac | - | - | T6 | unknown | |
 | Antigravity-Win | - | - | T7 | unknown | |
-| GPT | - | - | desk steps | unknown | |
+| GPT | 2026-11-24 12:23 | waiting | desk steps | unknown | Checking TASKS.md and the desk in five-minute cycles; no active lease |
 
 Assignment rules used by Claude:
 1. Lean proofs and submissions: Claude at night; in the day only short ones while Claude is `ok`.
