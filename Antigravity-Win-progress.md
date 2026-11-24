@@ -1,26 +1,18 @@
 # Antigravity-Win T7 (L-meta-909) Progress
 
-- Updated: 2026-11-24 14:28 JST
-- Encoding: `s909s.py` (`s = 6`, 115 points on Petersen graph, bare count `<= 2` per vertex)
-  - Verified `s = 1..4` UNSAT in `< 2.5 s` (`s=1`: 0.00s, `s=2`: 0.01s, `s=3`: 0.05s, `s=4`: 2.18s) and `s = 7` SAT verified on all 115 points.
-  - Note: `s = 6` in `s909s.py` also subsumes `s <= 5` (adding a gate reading an earlier gate on both sides adds 0 bare occurrences).
-- Started `s = 6` 6-core pool: 2026-11-24 12:40 JST (~1h48m wall time elapsed on `s = 6`, ~23,239 CPU s total)
-- Jobs queued in 6-core pool (`run_t7_Antigravity_Win.py`):
-  1. `s6_glucose4` (full `s909s.py` CNF)
-  2. `s6_maplechrono` (full `s909s.py` CNF)
-  3. `s6_minisat22` (full `s909s.py` CNF)
-  4. `s6_og1_cadical195` (`s909s.py` + exact `|og| = 1`)
-  5. `s6_og2_cadical195` (`s909s.py` + exact `|og| = 2`)
-  6. `s6_og3_cadical195` (`s909s.py` + exact `|og| = 3`)
-  7. `s6_og4_cadical195` (`s909s.py` + exact `|og| = 4`, picked up automatically by pool)
-  8. `s6_og5_cadical195` (`s909s.py` + exact `|og| = 5`, queued)
-  9. `s6_og6_cadical195` (`s909s.py` + exact `|og| = 6`, queued)
-- Active solver workers (6 cores, Ryzen 5 4500U):
-  - PID 4392: 4,366.0 CPU s (81.5 MB)
-  - PID 20968: 4,323.8 CPU s (73.7 MB)
-  - PID 11792: 3,989.2 CPU s (62.1 MB)
-  - PID 21112: 3,985.2 CPU s (33.1 MB)
-  - PID 6856: 3,972.4 CPU s (68.6 MB)
-  - PID 10848: 2,602.7 CPU s (51.2 MB)
-- Completed `s = 6` decisions so far: none yet (`t7_results.jsonl` still awaiting first `SAT`/`UNSAT`).
-- Continuing without time limit per `CLAIMS.md` rule 9; pushing checkpoints every ~25 minutes.
+- Updated: 2026-11-24 14:56 JST
+- **New confirmed partial UNSAT results (`s909s.py` at `s = 6` with exact output-gate count `|og|`)**:
+  - **`|og| = 6` (`s6_og6_cadical195`): UNSAT in `4.35 s`** (6,621 vars, 26,386 clauses)
+  - **`|og| = 5` (`s6_og5_cadical195`): UNSAT in `361.60 s`** (6,626 vars, 26,395 clauses)
+  - **`|og| = 4` (`s6_og4_cadical195`): UNSAT in `4,992.08 s`** (6,637 vars, 26,412 clauses)
+  - Plus earlier `s = 1..4` UNSAT (`0.00s, 0.01s, 0.05s, 2.18s`).
+  - **Consequence**: Any 6-AND circuit for `L-meta-909` (if one exists) **must have `|outGates| in {1, 2, 3}`**!
+- Still running (5 active workers from `run_t7_Antigravity_Win.py` pool, ~2h15m wall time, ~28,730 CPU s total):
+  - `s6_og1_cadical195` (`|og| = 1`), `s6_og2_cadical195` (`|og| = 2`), `s6_og3_cadical195` (`|og| = 3`), plus unsplit solver runs (`glucose4` / `maplechrono` / `minisat22`):
+    - PID 4392: 5,265.7 CPU s (82.2 MB)
+    - PID 20968: 5,211.8 CPU s (77.9 MB)
+    - PID 11792: 5,041.2 CPU s (65.9 MB)
+    - PID 21112: 5,038.5 CPU s (33.7 MB)
+    - PID 6856: 5,023.3 CPU s (72.3 MB)
+    - (PID 10848 finished `og=4, 5, 6` in 3,149.7 CPU s and is now free)
+- Next action on the newly freed 6th core: launching targeted `cadical195` sub-splits of `|og| in {1, 2, 3}` by exact `og` bitmask to accelerate closing `{1, 2, 3}`.
