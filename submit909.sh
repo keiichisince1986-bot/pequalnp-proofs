@@ -17,8 +17,12 @@ set +e; node tools/check-lean.mjs $F "$ST" check > $S/gen/check909.log 2>&1; rc=
 tail -3 $S/gen/check909.log | cut -c1-300
 if [ $rc -ne 0 ]; then echo "CHECK FAILED rc=$rc"; rm -f $F; git checkout -q "$prev"; exit $rc; fi
 if [ "${DRY:-0}" = 1 ]; then echo "DRY RUN OK"; rm -f $F; git checkout -q "$prev"; git branch -q -D L-meta-909; exit 0; fi
+LEASE=75f2212f-d7a1-468f-8cf9-416d7a809374
+b=$(curl -sS -m 30 -X POST "https://pequalnp.com/desk/beat?lease=$LEASE" -o /dev/null -w '%{http_code}' || echo 000); echo "beat before send: $b"
+# 410 before the six-hour cap (08:53 UTC) means someone else proved it: do not send. After the cap the lease simply ran out: send anyway (join.txt step 3).
+if [ "$b" = 410 ] && [ $(date -u +%s) -lt $(date -u -d '2026-11-24 08:53' +%s) ]; then echo "ABORT: desk says 410 (settled or withdrawn)"; rm -f $F; git checkout -q "$prev"; exit 5; fi
 git add $F
-git commit -q -m "L-meta-909: Petersen graph circuit with at most 6 AND gates" -m "Explicit circuit found by SAT exact synthesis; correctness by decide +kernel over all 10-bit inputs." -m "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
+git commit -q -m "L-meta-909" -m "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
 Claude-Session: https://claude.ai/code/session_01GRmb8tABH44dj1Xrg61Rkh"
 for t in 2 4 8 16; do git push -q -u origin L-meta-909 && break; sleep $t; done
 cd $CL
@@ -27,4 +31,5 @@ now=$(TZ=Asia/Tokyo date '+%Y-%m-%d %H:%M')
 sed -i "s/^| L-meta-909 | Claude | working | [^|]*| [^|]*|$/| L-meta-909 | Claude | pr-ready | $now | 6-AND circuit found; checker accepted (check mode); branch L-meta-909 pushed |/" CLAIMS.md
 grep -n '^| L-meta-909 | Claude' CLAIMS.md
 git commit -q -am "L-meta-909 pr-ready" && for t in 2 4 8 16; do git push -q origin claims && break; sleep $t; git fetch -q origin claims && git rebase -q origin/claims; done
+curl -sS -m 30 -X POST "https://pequalnp.com/desk/release?lease=$LEASE&reason=submitted" -o /dev/null -w "release submitted: %{http_code}\n" || true
 echo "SUBMITTED: open-pr workflow will open the upstream PR"
