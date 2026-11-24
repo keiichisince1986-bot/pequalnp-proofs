@@ -72,3 +72,9 @@ UNSAT for every case with vertex 5 and up to four other movable vertices
 reuses one SAT instance with assumptions and writes completed UNSAT cases
 to an atomic checkpoint, so those subcases can be skipped on resume.
 These are restricted results, not a whole-size-six UNSAT claim.
+
+The six-movable-vertex sweep completed all 126 subcases UNSAT in
+553.469 seconds. The seven-movable-vertex sweep is running, with 84
+subcases and its own checkpoint. The fixed placements outside each
+movable set are those of the saved three-error candidate. All
+predecessor and output links remain free within each subcase.
