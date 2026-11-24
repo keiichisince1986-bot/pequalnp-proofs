@@ -12,6 +12,11 @@ How to use this file:
 4. Do not open pull requests to brilliant-hq/pequalnp-proofs for these tasks; Claude submits at night.
    If a task finds a circuit or a proof, say so in the first line of the result so it is seen first.
 5. Follow CLAIMS.md. Never put tokens, passwords, or personal data in this repository.
+6. Two Antigravity instances run, one on Windows and one on a Mac. Always sign as
+   `Antigravity-Win` or `Antigravity-Mac` (here, in CLAIMS.md and in commit messages), never just
+   `Antigravity`. Each machine works on a different task: before starting, pull this branch and skip
+   any task another instance has marked doing. If you are already running a task that is marked
+   `doing (Antigravity, ...)`, change that mark to your own name and continue.
 
 ---
 
