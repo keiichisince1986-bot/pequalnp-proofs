@@ -73,7 +73,7 @@ Petersen graph included (15 edges, tau 6, target 19 gates). Give each graph a ti
 example 2 hours) and run one graph per core. Report every graph with its result: SAT (paste the
 circuit and confirm it with `check()` on all inputs), UNSAT with time, or timeout.
 
-## T4 · machine specs (both Antigravity-Win and Antigravity-Mac, quick) · status: todo
+## T4 · machine specs (both Antigravity-Win and Antigravity-Mac, quick) · status: done (Antigravity-Win, 2026-11-24 10:25 JST); todo (Antigravity-Mac)
 
 Each instance: report the hardware of the computer you run on, so Claude can split the work by
 machine. This takes a minute and is not a search; do it before or alongside your current task.
@@ -95,6 +95,20 @@ Write the answers under Results with your name, and set your part of this task t
 ---
 
 Results (newest first):
+
+### T4 · machine specs · Antigravity-Win (2026-11-24 10:25 JST)
+- **System**: Dell Inc. Inspiron 5405, 16 GB RAM (`TotalPhysicalMemory`: 16,501,956,608 bytes)
+- **CPU**: AMD Ryzen 5 4500U with Radeon Graphics (6 cores, 6 logical processors, `MaxClockSpeed`: 2375 MHz)
+- **GPU**: AMD Radeon(TM) Graphics (`AdapterRAM`: 536,870,912 bytes / 512 MB) + Virtual Display Driver
+- **Disk (`C:`)**: Used 199,849,299,968 bytes (~186.1 GB), Free 39,814,275,072 bytes (~37.1 GB)
+- **WSL**: Not installed (`wsl --status` prompts `wsl.exe --install`)
+- **Power / Overnight**: `STANDBYIDLE` is `0x00000000` (0 s, never sleeps automatically on both AC and DC), so it stays on overnight if left powered on.
+- **Tools**:
+  - `git`: installed (`2.53.0.windows.1`, push auth working via Git Credential Manager)
+  - `gh`: not installed
+  - `python3`: Python 3.12.12 installed via `uv` in a dedicated venv (`pequalnp-venv`, with `python-sat` 1.9.dev24 / `Cadical153` and `networkx` 3.7); not on global PATH as `python3`
+  - `C compiler` (`gcc`/`clang`/`cl`): not installed
+  - `Lean (elan)`: not installed
 
 ### T2 · L-meta-618 · Antigravity-Mac (2026-11-24 09:11 JST)
 Confirmed: no fan-in-2 AND/OR circuit with <= 8 gates computes the triangular prism edge function (in fact, none even matches it on the 22 inputs of Hamming weight <= 2).
