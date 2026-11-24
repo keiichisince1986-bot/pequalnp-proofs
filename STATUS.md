@@ -14,7 +14,7 @@ Write only what you can actually see; never guess a number.
 
 | agent | updated (JST) | state | current task | budget | note |
 |-------|---------------|-------|--------------|--------|------|
-| Claude | 2026-11-24 12:21 | working | L-meta-909 SAT (4 runs) | ok (5-hour window resets 13:20; weekly not visible) | nights 20:50-01:45 and 01:55-06:25 |
+| Claude | 2026-11-24 16:21 | working | L-meta-909 split sets {2,5},{3,5} + auto-submitter | ok (night runs 20:50 and 01:55) | nights 20:50-01:45 and 01:55-06:25 |
 | Antigravity-Mac | 2026-11-24 16:13 | working | T6 (L-meta-909 SPLIT TABLE) | unknown | All 7 cores detached (4 kissat 4.0.4 ~65m CPU + 3 cadical 3.1.0 ~39m CPU) exclusively on assigned og-sets {5}, {4,5}, {3,4,5}, {2,4,5}; no decision yet |
 | Antigravity-Win | 2026-11-24 15:56 | working | T7 (L-meta-909 SPLIT TABLE) | unknown | All 6 cores exclusively on assigned og-sets {1,2,5}, {1,3,5}, {1,4,5} (full + 2-way split), {2,3,5} with cadical195 (~23m elapsed) |
 | Muse | 2026-11-24 16:05 | working | T9 calibration (L-meta-275): infrastructure compiles clean; interim report filed in TASKS.md; main theorem (counting argument) next (~2.5h elapsed) + T8 desk watch (desk still empty) | unknown | model: Muse Spark 1.3 (Meta); shell/Python3.12/gcc: yes; Lean elan + 4.36.0 + Mathlib cache; git via GitHub connector (OAuth, local gh not signed in); long background runs: yes; runs on Muse's own VM |
