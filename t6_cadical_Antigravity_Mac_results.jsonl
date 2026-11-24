@@ -1,0 +1,1 @@
+{"tag": "og_3_4_5", "mask": [3, 4, 5], "mask_str": "3,4,5", "og_count": 3, "solver": "cadical 3.1.0", "status": "UNSAT", "rc": 20, "wall_s": 11021.32, "ts": "2026-11-24 16:35:54"}

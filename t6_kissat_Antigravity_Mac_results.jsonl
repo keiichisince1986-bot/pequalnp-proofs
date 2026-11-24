@@ -1,0 +1,10 @@
+{"tag": "og_2_4_5", "mask": [2, 4, 5], "mask_str": "2,4,5", "og_count": 3, "solver": "kissat 4.0.4", "status": "UNSAT", "rc": 20, "wall_s": 5348.08, "ts": "2026-11-24 14:33:22"}
+{"tag": "og_2_3_5", "mask": [2, 3, 5], "mask_str": "2,3,5", "og_count": 3, "solver": "kissat 4.0.4", "status": "UNSAT", "rc": 20, "wall_s": 1221.5, "ts": "2026-11-24 14:53:43"}
+{"tag": "og_1_4_5", "mask": [1, 4, 5], "mask_str": "1,4,5", "og_count": 3, "solver": "kissat 4.0.4", "status": "UNSAT", "rc": 20, "wall_s": 1792.08, "ts": "2026-11-24 15:23:35"}
+{"tag": "og_3_4_5", "mask": [3, 4, 5], "mask_str": "3,4,5", "og_count": 3, "solver": "kissat 4.0.4", "status": "UNSAT", "rc": 20, "wall_s": 8390.4, "ts": "2026-11-24 15:24:04"}
+{"tag": "og_1_2_5", "mask": [1, 2, 5], "mask_str": "1,2,5", "og_count": 3, "solver": "kissat 4.0.4", "status": "UNSAT", "rc": 20, "wall_s": 257.94, "ts": "2026-11-24 15:28:22"}
+{"tag": "og_1_3_5", "mask": [1, 3, 5], "mask_str": "1,3,5", "og_count": 3, "solver": "kissat 4.0.4", "status": "UNSAT", "rc": 20, "wall_s": 578.7, "ts": "2026-11-24 15:33:14"}
+{"tag": "og_0_3_5", "mask": [0, 3, 5], "mask_str": "0,3,5", "og_count": 3, "solver": "kissat 4.0.4", "status": "UNSAT", "rc": 20, "wall_s": 323.91, "ts": "2026-11-24 15:38:38"}
+{"tag": "og_0_2_5", "mask": [0, 2, 5], "mask_str": "0,2,5", "og_count": 3, "solver": "kissat 4.0.4", "status": "UNSAT", "rc": 20, "wall_s": 132.45, "ts": "2026-11-24 15:40:51"}
+{"tag": "og_0_1_5", "mask": [0, 1, 5], "mask_str": "0,1,5", "og_count": 3, "solver": "kissat 4.0.4", "status": "UNSAT", "rc": 20, "wall_s": 153.18, "ts": "2026-11-24 15:43:24"}
+{"tag": "og_0_4_5", "mask": [0, 4, 5], "mask_str": "0,4,5", "og_count": 3, "solver": "kissat 4.0.4", "status": "UNSAT", "rc": 20, "wall_s": 979.34, "ts": "2026-11-24 15:44:41"}
