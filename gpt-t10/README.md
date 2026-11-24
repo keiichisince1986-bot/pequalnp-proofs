@@ -50,3 +50,16 @@ runs ended without an unrestricted SAT or UNSAT result. The best stored
 candidate fails three of the 115 rows. The saved options and checkpoints
 can resume the public search inputs and best candidates; no solver process
 or in-memory learned clause database remains after the stop.
+
+Resumed T10 after verifying that PR #4051 adds only R_meta_909_1.lean,
+whereas the own-file criterion for stopping is L_meta_909.lean. The
+staged solver starts from the 69 saved input constraints, and the
+three-error circuit supplies initial wiring phases. The original
+solver's learned clauses cannot be recovered from these files.
+
+A separate run independently computes the inclusion-minimal positive
+basis: 70 positive masks plus 15 negative masks. It checks that every
+positive mask contains a retained mask. Since the gates are monotone,
+these rows suffice; any witness is still verified on all 115 rows.
+A third run searches 13 through 16 selector edits from the saved
+three-error circuit, skipping the previously excluded radius 12.

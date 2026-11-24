@@ -1,0 +1,12 @@
+{
+  "startedUtc": "2026-11-24T13:28:49.1371563+07:00",
+  "script": "search.py",
+  "arguments": [
+    "6",
+    "--solver=glucose4",
+    "--ordered-sides",
+    "--progress=run6-resumed/checkpoint.json",
+    "--phases=run6-relocate2/checkpoint.json",
+    "--witness=run6-resumed/witness.json"
+  ]
+}

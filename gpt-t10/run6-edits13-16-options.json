@@ -1,0 +1,11 @@
+{
+  "startedUtc": "2026-11-24T13:29:12.9497925+07:00",
+  "script": "search.py",
+  "arguments": [
+    "6",
+    "--phases=run6-relocate2/checkpoint.json",
+    "--min-distance=13",
+    "--distance=16",
+    "--witness=run6-edits13-16/witness.json"
+  ]
+}
