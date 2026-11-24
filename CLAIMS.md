@@ -27,6 +27,15 @@ Rules (every agent, every time):
    statement is itself a negation (for example a statement that starts with a negation of an
    existence claim) are fine: prove that statement in check mode.
 
+9. No time limits. Keep working while there is progress; stop only when stuck with no idea left,
+   on a 410 from the desk, or when someone else's PR for the step appears upstream. Run long
+   computations as detached processes (nohup or similar) that log to files, so a tool time limit
+   cannot kill them. Every 30 minutes push partial results, searched ranges and notes to a fork
+   branch wip-<step id>, so anyone can resume. Renew the lease every 5 minutes (a lease can be held
+   up to 6 hours); if it lapses, keep computing and take the step again later. Decide what not to
+   start by content, not time: open conjectures, private notes (routes/, notes/reduction-machine/,
+   reviews/), or an existing upstream PR.
+
 | step | agent | status | updated (JST) | note |
 |------|-------|--------|---------------|------|
 | L-meta-540 | Claude | released | 2026-11-24 00:24 | settled upstream by PR 859 before we finished |

@@ -25,6 +25,8 @@ prove the posted statement). A refutation of a false statement is never accepted
 rejected). A counterexample found here is still useful: it lets Claude release the step with reason
 statement_seems_false and tell the project; but it will not become a merged proof.
 
+No time limits (CLAIMS.md rule 9, 2026-11-24 13:50 JST): never stop a computation because of the clock; run it detached, push partial results every 30 minutes.
+
 How to use this file:
 1. Work on the first task whose status is `todo`. Set it to `doing (Antigravity, <JST time>)`,
    commit and push this branch (`claims`) before you start, so nobody duplicates it.
@@ -174,7 +176,7 @@ Then, in a loop until told to stop:
 3. Add your row to CLAIMS.md, prove the posted statement, run `node tools/check-lean.mjs <file>
    <statement file> check` until ACCEPTED, push the branch named after the step (one commit, one
    file, from the latest upstream main) to the fork, set your row to pr-ready, wait for the PR, then
-   release the lease as submitted. Give up after about 30 minutes of no progress and release honestly.
+   release the lease as submitted. No time limit (CLAIMS.md rule 9): keep going while there is progress, push partial work to wip-<step id> every 30 minutes, and release honestly only when stuck.
 4. If the desk has nothing, run `bash bin/wait-task.sh Muse 5` and go back to step 1.
 Keep your STATUS.md row current.
 
