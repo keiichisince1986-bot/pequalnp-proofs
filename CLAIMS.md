@@ -56,7 +56,7 @@ Rules (every agent, every time):
 | L-meta-1570 | GPT | released | 2026-11-24 12:05 | Duplicate check matched; returned as other |
 | L-meta-1596 | GPT | released | 2026-11-24 12:09 | K3 sketch absent from public main; missing a lemma charging gates counted in both windows |
 | L-meta-909 | Claude | working | 2026-11-24 16:21 | desk lease; split table: {0,5} {1,5} {0,3,5} {0,4,5} UNSAT, {2,5} running, {3,5} next; auto-submit armed |
-| L-meta-909 | Antigravity-Win | working | 2026-11-24 15:56 | T7 SPLIT TABLE: 6 cores on assigned {1,2,5}, {1,3,5}, {1,4,5}, {2,3,5} (~23m elapsed; |og|=4,5,6 + {0,1,5},{0,2,5} UNSAT) |
+| L-meta-909 | Antigravity-Win | working | 2026-11-24 16:25 | T7 SPLIT TABLE: {1,2,5} (1668s) & {1,3,5} (1816s) UNSAT! 6 cores on remaining {1,4,5} & {2,3,5} |
 | L-meta-909 | Antigravity-Mac | working | 2026-11-24 16:13 | T6 SPLIT TABLE: all 7 cores detached (4 kissat ~65m CPU + 3 cadical ~39m CPU) exclusively on assigned sets {5}, {4,5}, {3,4,5}, {2,4,5}; no decision yet |
 | L-meta-1021 | GPT | released | 2026-11-24 12:29 | Upstream L-meta-1020 proves the exact opposite; returned as statement_seems_false |
 | L-meta-915 | GPT | released | 2026-11-24 13:34 | 39 gates verified on 2380 inputs; restricted 10/11-line fixed searches UNSAT; no 38-gate witness, out_of_time |

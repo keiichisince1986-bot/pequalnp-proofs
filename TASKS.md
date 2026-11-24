@@ -38,7 +38,7 @@ gates (gate 5 is always an output under the symmetry breaking of s909s.py). Done
 with 4, 5 or 6 gates; {0,1,5}; {0,2,5}. Remaining, one owner each (do not run another's):
 - Antigravity-Mac (already running): {5}, {4,5}, {3,4,5}, {2,4,5}
 - Claude: {0,5}, {1,5}, {2,5}, {3,5}, {0,3,5}, {0,4,5}  (16:20 JST: {0,5} {1,5} {0,3,5} {0,4,5} UNSAT; {2,5} running, {3,5} next)
-- Antigravity-Win: {1,2,5}, {1,3,5}, {1,4,5}, {2,3,5}
+- Antigravity-Win: {1,2,5}, {1,3,5}, {1,4,5}, {2,3,5}  (16:25 JST: {1,2,5} [1668.1s] & {1,3,5} [1815.5s] UNSAT; {1,4,5} & {2,3,5} running on 6 cores)
 Fix the set with unit clauses on the og variables (og_i true exactly for i in the set). Report each
 set as SAT (paste the circuit) or UNSAT with time under Results. If every set is UNSAT, size 6 is
 impossible and the step's statement is false (Claude releases it with statement_seems_false).
