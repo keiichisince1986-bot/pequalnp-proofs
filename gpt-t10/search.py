@@ -2,6 +2,7 @@
 import argparse
 import json
 from pathlib import Path
+from random import Random
 from time import monotonic
 
 from pysat.card import CardEnc, EncType
@@ -47,6 +48,9 @@ def main():
     parser.add_argument("size", type=int)
     parser.add_argument("--solver", default="cadical195")
     parser.add_argument("--witness", type=Path)
+    parser.add_argument("--ordered-sides", action="store_true")
+    parser.add_argument("--max-refs", type=int)
+    parser.add_argument("--progress", type=Path, help="Use staged constraints and save progress here")
     args = parser.parse_args()
     start = monotonic()
     examples = rows()
@@ -68,6 +72,21 @@ def main():
 
         bare = [[[v(("bare", i, b, p)) for p in range(N)] for b in range(2)] for i in range(k)]
         incoming = [[[v(("read", i, b, j)) for j in range(i)] for b in range(2)] for i in range(k)]
+        if args.max_refs is not None:
+            refs = [selected for gate in incoming for side in gate for selected in side]
+            for c in CardEnc.atmost(refs, bound=args.max_refs, vpool=ids, encoding=EncType.seqcounter):
+                add(c)
+        if args.ordered_sides:
+            for i in range(k):
+                prefix = v(("equal side prefix", i, 0))
+                add([prefix])
+                for j, (a, b) in enumerate(zip(bare[i][0] + incoming[i][0], bare[i][1] + incoming[i][1])):
+                    after = v(("equal side prefix", i, j + 1))
+                    for clause in ([-prefix, -a, b], [-after, prefix], [-after, -a, b],
+                                   [-after, a, -b], [-prefix, -a, -b, after],
+                                   [-prefix, a, b, after]):
+                        add(clause)
+                    prefix = after
         out_vertices = [v(("output vertex", p)) for p in range(N)]
         out_gates = [v(("output gate", i)) for i in range(k)]
         for p in range(N):
@@ -77,7 +96,7 @@ def main():
             for c in CardEnc.atmost(use, bound=2, vpool=ids, encoding=EncType.seqcounter):
                 add(c)
 
-        for mask, desired in examples:
+        def add_example(mask, desired):
             true_points = [p for p in range(N) if mask >> p & 1]
             value = [v(("gate value", mask, i)) for i in range(k)]
             for i in range(k):
@@ -101,26 +120,68 @@ def main():
                 for term in terms:
                     add([-term])
 
-        print(f"size={k} solver={args.solver} rows={len(examples)} variables={sat.nof_vars()}", flush=True)
-        result = sat.solve()
-        print(f"{'SAT' if result else 'UNSAT'} elapsed={monotonic() - start:.3f}s", flush=True)
-        if result:
+        def decode():
             positive = {x for x in sat.get_model() if x > 0}
             def chosen(xs):
                 return [j for j, x in enumerate(xs) if x in positive]
-            circuit = {
+            return {
                 "gates": [[(chosen(bare[i][b]), chosen(incoming[i][b])) for b in range(2)]
                           for i in range(k)],
                 "out_vars": chosen(out_vertices),
                 "out_gates": chosen(out_gates),
             }
-            verify(circuit, examples)
-            payload = json.dumps(circuit, indent=2)
-            print(f"Verified on all {len(examples)} rows\n{payload}", flush=True)
-            if args.witness:
-                tmp = args.witness.with_suffix(".tmp")
-                tmp.write_text(payload + "\n", encoding="utf-8")
-                tmp.replace(args.witness)
+
+        def save(path, data):
+            temp = path.with_suffix(path.suffix + ".tmp")
+            temp.write_text(json.dumps(data, indent=2) + "\n", encoding="utf-8")
+            temp.replace(path)
+
+        rng = Random(909)
+        best = None
+        chosen_rows = set(examples)
+        if args.progress:
+            chosen_rows = {(u, yes) for u, yes in examples if not yes}
+            chosen_rows.update(rng.sample([e for e in examples if e[1]], 24))
+            if args.progress.exists():
+                previous = json.loads(args.progress.read_text(encoding="utf-8"))
+                config = (k, args.ordered_sides, args.max_refs)
+                if tuple(previous["config"]) != config:
+                    raise ValueError("Different search configuration in progress file")
+                chosen_rows.update(tuple(row) for row in previous["rows"])
+                best = previous["best"]
+
+        for e in sorted(chosen_rows):
+            add_example(*e)
+        while True:
+            if args.progress:
+                save(args.progress, {"config": [k, args.ordered_sides, args.max_refs],
+                                     "rows": sorted(chosen_rows), "best": best})
+            print(f"size={k} solver={args.solver} rows={len(chosen_rows)} variables={sat.nof_vars()}", flush=True)
+            if not sat.solve():
+                print(f"UNSAT elapsed={monotonic() - start:.3f}s", flush=True)
+                return
+            circuit = decode()
+            failed = []
+            for e in examples:
+                try:
+                    verify(circuit, [e])
+                except AssertionError:
+                    failed.append(e)
+            assert not (set(failed) & chosen_rows)
+            if not failed:
+                print(f"SAT elapsed={monotonic() - start:.3f}s", flush=True)
+                print(f"Verified on all {len(examples)} rows\n{json.dumps(circuit, indent=2)}", flush=True)
+                if args.witness:
+                    save(args.witness, circuit)
+                return
+            assert args.progress
+            if best is None or len(failed) < best["failed"]:
+                best = {"failed": len(failed), "circuit": circuit}
+            print(f"Candidate fails {len(failed)} of {len(examples)} rows", flush=True)
+            batch = rng.sample(failed, min(8, len(failed)))
+            for e in batch:
+                add_example(*e)
+            chosen_rows.update(batch)
 
 
 if __name__ == "__main__":
