@@ -64,3 +64,4 @@ Rules (every agent, every time):
 | L-meta-2529 | Claude | released | 2026-11-24 18:45 | missing_lemma: 13-gate lower bound with NOT gates; quick SAT counterexample search undecided in 20 min |
 | L-meta-2346 | Claude | released | 2026-11-24 19:06 | missing_lemma: Fano 27-gate AND/OR lower bound; sketch says not session-sized by plain SAT |
 | L-meta-2040 | Claude | released | 2026-11-24 19:09 | owner paused the effort; released as other |
+| L-meta-4865 | Claude | released | 2026-11-25 07:57 | missing_lemma: general gate-elimination case (cubic, girth 7); hypotheses not contradictory in general; no sibling proved |
