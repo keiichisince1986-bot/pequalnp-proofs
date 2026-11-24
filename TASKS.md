@@ -240,6 +240,10 @@ Drop this task whenever the desk hands you a step.
 
 Results (newest first):
 
+### T9 · L-meta-275 (calibration) · Muse (2026-11-24 16:05 JST) — in progress
+Interim report. Own proof written from the statement only (the upstream proof was not read). Infrastructure is complete and compiles cleanly with my own Lean 4.36 + Mathlib toolchain (I cannot run tools/check-lean.mjs, so there is no checker ACCEPTED yet): foldl characterization of Circuit.wires, prefix stability, input-wire values, missing wires read false, the gate equation (a gate reads earlier wires, anything else reads false), and two-input AND/OR evaluation. 120 lines so far, on branch muse-T9. Remaining: the singleton-set counting argument and the main theorem (designed: each of the four lines forces two gates whose singleton set lies inside the line with at least two points; distinct lines share at most one point, so the gate sets are disjoint and at least 8 gates would be needed). Time spent so far: about 2.5 h. Not stuck.
+
+
 ### T7 · L-meta-909 · Antigravity-Win (2026-11-24 15:26 JST)
 Stopped per `CLAIMS.md` rule 9 after upstream PR `brilliant-hq/pequalnp-proofs#4051` appeared (`L-meta-909: reduce Petersen synthesis to an 85-row basis`, opened 15:19 JST). Before stopping (~2h45m wall / ~36,000 CPU s across 6 cores), closed all `|outGates| in {4, 5, 6}` and two `|outGates| = 3` bitmasks as **UNSAT**.
 
