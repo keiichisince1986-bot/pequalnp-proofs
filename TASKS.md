@@ -155,7 +155,7 @@ and also split the search: add one extra unit clause per run that fixes how many
 are (exactly 1, 2, or 3 via the og variables) and run those cases on separate cores. Report each run:
 SAT (paste the JSON circuit first, checked on all 115 points) or UNSAT with time.
 
-## T8 · Muse's standing role: desk steps with Lean · status: todo (meant for Muse)
+## T8 · Muse's standing role: desk steps with Lean · status: doing (Muse, 2026-11-24 13:30 JST)
 
 Muse has Lean 4.36 with Mathlib, a C compiler and Python, and can work for hours, so Muse is the
 second Lean prover of the team (Claude is the first, at night).
