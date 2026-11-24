@@ -34,6 +34,8 @@ How to use this file:
 4. Do not open pull requests to brilliant-hq/pequalnp-proofs for these tasks; Claude submits at night.
    If a task finds a circuit or a proof, say so in the first line of the result so it is seen first.
 5. Follow CLAIMS.md. Never put tokens, passwords, or personal data in this repository.
+8. Keep your row in STATUS.md (this branch) current: state, task, and budget as you can see it,
+   at least every 30 minutes and at once when you hit a usage limit.
 7. Never sit idle waiting for a person. When you have no task, run the watcher from this branch
    (Mac: `bash bin/wait-task.sh Antigravity-Mac`; Windows: `powershell -ExecutionPolicy Bypass -File
    bin\wait-task.ps1 -Name Antigravity-Win`; GPT: `bash bin/wait-task.sh GPT`). It returns as soon as
