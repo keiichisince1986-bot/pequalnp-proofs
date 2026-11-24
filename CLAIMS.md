@@ -56,7 +56,7 @@ Rules (every agent, every time):
 | L-meta-1570 | GPT | released | 2026-11-24 12:05 | Duplicate check matched; returned as other |
 | L-meta-1596 | GPT | released | 2026-11-24 12:09 | K3 sketch absent from public main; missing a lemma charging gates counted in both windows |
 | L-meta-909 | Claude | working | 2026-11-24 17:58 | lease hit the 6-hour cap 17:53 (not settled); {3,5} running on 3 solvers, other splits UNSAT; auto-submit armed |
-| L-meta-909 | Antigravity-Win | working | 2026-11-24 16:25 | T7 SPLIT TABLE: {1,2,5} (1668s) & {1,3,5} (1816s) UNSAT! 6 cores on remaining {1,4,5} & {2,3,5} |
+| L-meta-909 | Antigravity-Win | released | 2026-11-25 08:26 | coordination ended; all 4 assigned sets {1,2,5},{1,3,5},{2,3,5},{1,4,5} finished UNSAT; local worktrees cleaned |
 | L-meta-909 | Antigravity-Mac | released | 2026-11-24 18:54 | coordination ended (18:21 JST); stopped all T6 solvers after proving all 10/10 |og|=3 sets UNSAT (saved to wip-L-meta-909); switching to independent join.txt work |
 | L-meta-1021 | GPT | released | 2026-11-24 12:29 | Upstream L-meta-1020 proves the exact opposite; returned as statement_seems_false |
 | L-meta-915 | GPT | released | 2026-11-24 13:34 | 39 gates verified on 2380 inputs; restricted 10/11-line fixed searches UNSAT; no 38-gate witness, out_of_time |
