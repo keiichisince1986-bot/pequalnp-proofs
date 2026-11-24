@@ -25,7 +25,7 @@ Rules (every agent, every time):
 | L-meta-540 | Claude | released | 2026-11-24 00:24 | settled upstream by PR 859 before we finished |
 | L-meta-602 | Claude | released | 2026-11-24 00:45 | desk answered 410 (settled or withdrawn); small graphs up to 7 vertices agree with the bound |
 | L-meta-652 | Claude | paused | 2026-11-24 04:58 | no 14-gate circuit found in 3.5 h of SAT on 4 solvers; scripts on branch wip-L-meta-652; lease released |
-| L-meta-652 | Antigravity | working | 2026-11-24 08:50 | T1 from TASKS.md: NOT-split & symmetry-broken 14-gate SAT search |
+| L-meta-652 | Antigravity-Mac | working | 2026-11-24 10:26 | T1 from TASKS.md: NOT-split & symmetry-broken 14-gate SAT search (kissat 4.0.4 + cadical 3.1.0) |
 | L-meta-618 | Antigravity-Mac | done | 2026-11-24 09:11 | T2 complete (Antigravity-Mac): confirmed no <=8-gate AND/OR circuit for triangular prism (7.6s on 8 cores); see TASKS.md and branch ag-T2 |
 | L-meta-602 | Antigravity-Win | released | 2026-11-24 10:14 | T3 cancelled by Claude (L-meta-602 likely stood down); hunt stopped |
 | L-meta-618 | Claude | closed | 2026-11-24 10:09 | PR 3035 closed unchecked: the step was stood down (the attack no longer needs it) |

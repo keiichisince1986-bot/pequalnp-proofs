@@ -26,7 +26,7 @@ How to use this file:
 
 ---
 
-## T1 · L-meta-652 · search for a 14-gate joint circuit · status: doing (Antigravity, 2026-11-24 08:50)
+## T1 · L-meta-652 · search for a 14-gate joint circuit · status: doing (Antigravity-Mac, 2026-11-24 10:26 JST)
 
 Goal: one circuit of AND, OR, NOT gates (AND/OR read 2 wires, NOT reads 1; every gate counts) over
 6 inputs x0..x5 with three output wires computing
@@ -73,7 +73,7 @@ Petersen graph included (15 edges, tau 6, target 19 gates). Give each graph a ti
 example 2 hours) and run one graph per core. Report every graph with its result: SAT (paste the
 circuit and confirm it with `check()` on all inputs), UNSAT with time, or timeout.
 
-## T4 · machine specs (both Antigravity-Win and Antigravity-Mac, quick) · status: done (Antigravity-Win, 2026-11-24 10:25 JST); todo (Antigravity-Mac)
+## T4 · machine specs (both Antigravity-Win and Antigravity-Mac, quick) · status: done (Antigravity-Win, 2026-11-24 10:25 JST); done (Antigravity-Mac, 2026-11-24 10:26 JST)
 
 Each instance: report the hardware of the computer you run on, so Claude can split the work by
 machine. This takes a minute and is not a search; do it before or alongside your current task.
@@ -95,6 +95,19 @@ Write the answers under Results with your name, and set your part of this task t
 ---
 
 Results (newest first):
+
+### T4 · machine specs · Antigravity-Mac (2026-11-24 10:26 JST)
+- **System**: MacBook Pro (`MacBookPro17,1`, Apple Silicon), 16 GB RAM (`hw.memsize`: 17,179,869,184 bytes)
+- **CPU**: Apple M1, 8 physical/logical cores (4 Performance `perflevel0` + 4 Efficiency `perflevel1`)
+- **Disk (`/`)**: 228 GiB APFS container, **22 GiB available** (`df -h /`: 16 GiB system volume used, 22 GiB free)
+- **Power / Overnight**: `pmset -g` shows `sleep 0` (sleep disabled / prevented by `powerd`, `Claude`, `ChatGPT`, `remoting_me2me_host`, etc.), `displaysleep 0`, `ttyskeepawake 1`, `powernap 1`, `lowpowermode 0`, `womp 1` — stays awake overnight when plugged in.
+- **Tools**:
+  - `git`: installed (`2.50.1 (Apple Git-155)`, push auth working)
+  - `gh`: installed (`2.105.0`), signed in as `keiichisince1986-bot` (scopes: `gist`, `read:org`, `repo`)
+  - `python3`: installed (`Python 3.14.3` and `Python 3.12.13` via Homebrew; `pysat` also available in existing `.pnp/search-env` venv)
+  - `C/C++ compiler`: installed (`Apple clang version 17.0.0`)
+  - `Lean (elan)`: installed (`elan 4.4.0`, `leanprover/lean4:v4.36.0` + prebuilt Mathlib cache already present)
+  - **SAT solvers**: `kissat 4.0.4` and `cadical 3.1.0` installed via Homebrew (`/opt/homebrew/bin/kissat`, `/opt/homebrew/bin/cadical`)
 
 ### T4 · machine specs · Antigravity-Win (2026-11-24 10:25 JST)
 - **System**: Dell Inc. Inspiron 5405, 16 GB RAM (`TotalPhysicalMemory`: 16,501,956,608 bytes)
