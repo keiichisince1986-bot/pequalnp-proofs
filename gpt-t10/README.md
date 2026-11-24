@@ -18,3 +18,11 @@ Seven gates: SAT after 431.954 seconds, with all 115 inputs verified. The stored
 witness and log are from the independent CaDiCaL run. Six gates: search running.
 The staged checkpoint preserves the tested input constraints and best circuit.
 Solver-internal learned clauses stay in the live solver process.
+
+Partial six-gate results: an incremental SAT candidate missed 8 rows; a
+separate bit-vector beam search improved it to 4 errors. Neither is a
+witness. The exact and staged SAT runs continue. An additional exact run
+selects all gates that are false on every negative row. This choice preserves
+satisfiability because adding such output gates cannot change a negative
+row or turn a positive row false. Its starting phases prefer a saved candidate
+without imposing it as a hard constraint.

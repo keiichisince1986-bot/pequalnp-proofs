@@ -53,6 +53,8 @@ def main():
     parser.add_argument("--progress", type=Path, help="Use staged constraints and save progress here")
     parser.add_argument("--seed", type=int, default=909)
     parser.add_argument("--phases", type=Path, help="Prefer the wiring in this checkpoint without constraining it")
+    parser.add_argument("--maximal-output", action="store_true",
+                        help="Select all gates that are false on every negative input")
     args = parser.parse_args()
     start = monotonic()
     examples = rows()
@@ -91,6 +93,10 @@ def main():
                     prefix = after
         out_vertices = [v(("output vertex", p)) for p in range(N)]
         out_gates = [v(("output gate", i)) for i in range(k)]
+        if args.maximal_output:
+            negatives = [mask for mask, desired in examples if not desired]
+            for i, selected in enumerate(out_gates):
+                add([selected, *(v(("gate value", mask, i)) for mask in negatives)])
         if args.phases:
             preferred = json.loads(args.phases.read_text(encoding="utf-8"))["best"]["circuit"]
             if len(preferred["gates"]) != k:

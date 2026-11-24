@@ -10,6 +10,7 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("checkpoint", type=Path)
     parser.add_argument("witness", type=Path)
+    parser.add_argument("--progress", type=Path)
     args = parser.parse_args()
     examples = rows()
     point = [sum(1 << i for i, (u, _) in enumerate(examples) if u >> p & 1) for p in range(N)]
@@ -48,7 +49,20 @@ def main():
     def split(m):
         return list(variables(m & ((1 << N) - 1))), list(variables(m >> N))
 
+    def decode(c):
+        ov, og = split(c[-1])
+        return {"gates": [[split(c[2 * i]), split(c[2 * i + 1])] for i in range(k)],
+                "out_vars": ov, "out_gates": og}
+
+    def save(path, result):
+        temp = path.with_suffix(path.suffix + ".tmp")
+        temp.write_text(json.dumps(result, indent=2) + "\n", encoding="utf-8")
+        temp.replace(path)
+
     beam = [(count(seed), seed)]
+    best_score = beam[0][0]
+    if args.progress:
+        save(args.progress, {"depth": 0, "best": {"failed": best_score, "circuit": decode(seed)}})
     seen = {seed}
     for depth in range(1, 13):
         next_beam = []
@@ -63,17 +77,18 @@ def main():
                     if score is None:
                         continue
                     if score == 0:
-                        ov, og = split(change[-1])
-                        result = {"gates": [[split(change[2 * i]), split(change[2 * i + 1])]
-                                            for i in range(k)], "out_vars": ov, "out_gates": og}
+                        result = decode(change)
                         verify(result, examples)
-                        args.witness.write_text(json.dumps(result, indent=2) + "\n", encoding="utf-8")
+                        save(args.witness, result)
                         print(f"Verified all {len(examples)} rows at depth {depth}.")
                         return
                     next_beam.append((score, change))
         beam = sorted(next_beam)[:100]
         if not beam:
             break
+        if args.progress and beam[0][0] < best_score:
+            best_score, best_circuit = beam[0]
+            save(args.progress, {"depth": depth, "best": {"failed": best_score, "circuit": decode(best_circuit)}})
         print(f"depth={depth} best_missing={beam[0][0]} distinct_candidates={len(seen)}", flush=True)
 
 
