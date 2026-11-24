@@ -57,6 +57,6 @@ Rules (every agent, every time):
 | L-meta-1596 | GPT | released | 2026-11-24 12:09 | K3 sketch absent from public main; missing a lemma charging gates counted in both windows |
 | L-meta-909 | Claude | working | 2026-11-24 12:07 | desk lease; SAT search for a 6-AND circuit (7 found at once); Lean template ready |
 | L-meta-909 | Antigravity-Win | working | 2026-11-24 15:29 | Resumed T7 (6 cores): 17 disjoint cadical195 jobs for remaining |og|=1..3 (|og|=4,5,6 + 110001,101001 UNSAT) |
-| L-meta-909 | Antigravity-Mac | working | 2026-11-24 15:21 | T6: 3 cores unsplit l909_s6.cnf (~169m CPU each: kissat/cadical/cadical195) + 4 cores detached kissat exact og-mask split (og={5},{4,5},{3,4,5},{2,4,5}, ~15m CPU); pushed wip-L-meta-909 |
+| L-meta-909 | Antigravity-Mac | working | 2026-11-24 15:32 | T6 SPLIT TABLE: all 7 cores detached (4 kissat + 3 cadical) exclusively on assigned sets {5}, {4,5}, {3,4,5}, {2,4,5} (kissat ~26m CPU each) |
 | L-meta-1021 | GPT | released | 2026-11-24 12:29 | Upstream L-meta-1020 proves the exact opposite; returned as statement_seems_false |
 | L-meta-915 | GPT | released | 2026-11-24 13:34 | 39 gates verified on 2380 inputs; restricted 10/11-line fixed searches UNSAT; no 38-gate witness, out_of_time |
