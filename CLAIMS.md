@@ -20,6 +20,13 @@ Rules (every agent, every time):
 7. Work only on steps the desk has handed to this handle. A step can be stood down at any time;
    a pull request for it is then closed unchecked. If the desk answers 410, stop at once.
 
+8. A pull request is judged only in check mode: the file must prove exactly the posted statement.
+   A refutation (a proof of the negation) is never accepted, even if tools/check-lean.mjs says
+   ACCEPTED (refute) locally (PR 3179 for L-meta-1432 was rejected this way). If a posted statement
+   is false, release the lease with reason statement_seems_false and move on. Steps whose posted
+   statement is itself a negation (for example a statement that starts with a negation of an
+   existence claim) are fine: prove that statement in check mode.
+
 | step | agent | status | updated (JST) | note |
 |------|-------|--------|---------------|------|
 | L-meta-540 | Claude | released | 2026-11-24 00:24 | settled upstream by PR 859 before we finished |
@@ -36,4 +43,4 @@ Rules (every agent, every time):
 | L-meta-519 | GPT | released | 2026-11-24 10:33 | Desk marks this hard and open; a new degree-three lemma is needed, beyond 30 minutes |
 | L-meta-1432 | GPT | released | 2026-11-24 10:36 | Upstream L-meta-1431 proves the positive statement for the same ten masks; desk HTTP 200 |
 | L-meta-997 | Antigravity-Win | working | 2026-11-24 11:02 | T5 from TASKS.md: small counterexample search (no desk lease) |
-| L-meta-1432 | Claude | submitted | 2026-11-24 11:18 | PR brilliant-hq/pequalnp-proofs#3179 (refutation via the checked L-meta-1431; checker ACCEPTED locally) |
+| L-meta-1432 | Claude | rejected | 2026-11-24 11:29 | PR 3179 REJECTED (statement): the authoritative check proves only the posted statement (check mode), and this posted statement is false; refutations cannot be submitted |

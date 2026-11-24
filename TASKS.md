@@ -20,6 +20,11 @@ Machines and roles (from T4, set by Claude 2026-11-24):
   speed, install a C compiler (for example via winget, LLVM) or hand it to the Mac.
 - Claude (cloud, nights): proofs in Lean, final checks, submission through CLAIMS.md pr-ready.
 
+IMPORTANT (added 2026-11-24 11:30 JST): pull requests are judged only in check mode (the file must
+prove the posted statement). A refutation of a false statement is never accepted (PR 3179 was
+rejected). A counterexample found here is still useful: it lets Claude release the step with reason
+statement_seems_false and tell the project; but it will not become a merged proof.
+
 How to use this file:
 1. Work on the first task whose status is `todo`. Set it to `doing (Antigravity, <JST time>)`,
    commit and push this branch (`claims`) before you start, so nobody duplicates it.
