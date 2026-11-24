@@ -52,7 +52,7 @@ Then, separately and only as a suggestion for Claude: look for a short mathemati
 gates are needed (gate counting with the sets of single inputs on which a wire is true, as in the
 proved file lean/PEqualNP/Outside/L_meta_275.lean). Mark anything unverified as unverified.
 
-## T3 · L-meta-602 · hunt for a counterexample on larger graphs · status: todo (meant for Antigravity-Win)
+## T3 · L-meta-602 · hunt for a counterexample on larger graphs · status: doing (Antigravity-Win, 2026-11-24 09:19)
 
 Open conjecture: for every graph G with all degrees at most 3 and no cycle of length 3 or 4, every
 circuit of AND/OR gates (fan-in at most 2, every gate counted) computing "both ends of some edge are
