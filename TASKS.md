@@ -155,7 +155,7 @@ the DIMACS model back), check it on all 115 points, paste the JSON circuit as th
 result, and push at once. If every run says UNSAT, report that with the times (then the statement is
 false and Claude releases the step).
 
-## T7 · L-meta-909 · 6-AND circuit search, split runs in Python · status: doing (Antigravity-Win, 2026-11-24 12:13 JST)
+## T7 · L-meta-909 · 6-AND circuit search, split runs in Python · status: paused (Antigravity-Win, 2026-11-24 15:26 JST; upstream PR #4051)
 
 Same goal as T6 (read it). In your pysat venv run s909s.py from branch `wip-L-meta-909` with
 `python3 s909s.py 6 glucose4`, `python3 s909s.py 6 maplechrono`, `python3 s909s.py 6 minisat22`,
@@ -228,6 +228,20 @@ Drop this task whenever the desk hands you a step.
 ---
 
 Results (newest first):
+
+### T7 · L-meta-909 · Antigravity-Win (2026-11-24 15:26 JST)
+Stopped per `CLAIMS.md` rule 9 after upstream PR `brilliant-hq/pequalnp-proofs#4051` appeared (`L-meta-909: reduce Petersen synthesis to an 85-row basis`, opened 15:19 JST). Before stopping (~2h45m wall / ~36,000 CPU s across 6 cores), closed all `|outGates| in {4, 5, 6}` and two `|outGates| = 3` bitmasks as **UNSAT**.
+
+- **Files**: `t7/run_t7.py`, `t7/run_t7_subsplit.py`, `t7/t7_results.jsonl`, `t7/t7_subsplit_results.jsonl` on branch `ag-T7` (and mirrored on `wip-L-meta-909`).
+- **Completed & verified results (`s909s.py` encoding, 115 Petersen points, bare count `<= 2`)**:
+  - `s = 7` (`cadical195`): **SAT** in 822.43 s (verified on all 115 points, bare counts `[2]*10`).
+  - `s = 1..4` (`cadical195`): **UNSAT** (`s=1`: 0.00 s, `s=2`: 0.01 s, `s=3`: 0.05 s, `s=4`: 2.18 s).
+  - `s = 6`, `|og| = 6` (`cadical195`): **UNSAT** in **4.35 s** (6,621 vars, 26,386 clauses).
+  - `s = 6`, `|og| = 5` (`cadical195`): **UNSAT** in **361.60 s** (6,626 vars, 26,395 clauses).
+  - `s = 6`, `|og| = 4` (`cadical195`): **UNSAT** in **4,992.08 s** (6,637 vars, 26,412 clauses).
+  - `s = 6`, exact `og` mask `110001` (`og = {0, 1, 5}`, `cadical195`): **UNSAT** in **193.04 s**.
+  - `s = 6`, exact `og` mask `101001` (`og = {0, 2, 5}`, `cadical195`): **UNSAT** in **366.39 s**.
+- **Undecided when stopped**: unsplit `s = 6` on `glucose4`, `maplechrono`, `minisat22`; split `s = 6` on `|og| = 1`, `|og| = 2`, and the remaining 8 of 10 masks for `|og| = 3`.
 
 ### T5 · L-meta-997 · Antigravity-Win (2026-11-24 11:31 JST)
 No counterexample found across the entire requested range (`n = 3..6`, `1..4` nonempty sets with pairwise intersections `<= 1`, all subsets `y`, and all circuits of `0..7` gates with at most one NOT gate at index `t`), nor on extended cases up to `n = 6, m = 6, s = 9` and `n = 7` Fano subfamilies up to `m = 5, s = 9`.
