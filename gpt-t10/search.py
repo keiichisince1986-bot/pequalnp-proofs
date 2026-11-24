@@ -1,5 +1,6 @@
 """Independent SAT encoding of the Petersen AND-count circuit task."""
 import argparse
+from itertools import combinations
 import json
 from pathlib import Path
 from random import Random
@@ -76,6 +77,12 @@ def main():
     parser.add_argument("--phases", type=Path, help="Prefer the wiring in this checkpoint without constraining it")
     parser.add_argument("--distance", type=int, help="Bound the number of wiring edits from --phases")
     parser.add_argument("--min-distance", type=int, help="Skip already excluded wiring distances")
+    parser.add_argument("--fix-bare-except", type=int, nargs="+",
+                        help="Keep bare selectors from --phases except for these vertices")
+    parser.add_argument("--focus-sweep", type=int,
+                        help="Sweep that many movable bare vertices, always including vertex 5")
+    parser.add_argument("--focus-checkpoint", type=Path,
+                        help="Save completed sweep subcases here")
     parser.add_argument("--maximal-output", action="store_true",
                         help="Select all gates that are false on every negative input")
     parser.add_argument("--last-output", action="store_true",
@@ -85,8 +92,12 @@ def main():
     parser.add_argument("--minimal-positive", action="store_true",
                         help="Encode only inclusion-minimal positive rows; verify on all rows")
     args = parser.parse_args()
-    if (args.distance is not None or args.min_distance is not None) and args.phases is None:
-        parser.error("Distance bounds require --phases")
+    if any(x is not None for x in (args.distance, args.min_distance, args.fix_bare_except, args.focus_sweep)) and args.phases is None:
+        parser.error("Distance bounds and fixed bare selectors require --phases")
+    if args.focus_sweep is not None and (
+        not 1 <= args.focus_sweep <= N or args.progress or args.fix_bare_except is not None
+    ):
+        parser.error("Sweep needs 1-10 movable vertices and cannot use staged or fixed-bare mode")
     if args.last_output and (args.size < 1 or args.maximal_output):
         parser.error("--last-output requires at least one gate and excludes --maximal-output")
     if args.anchor and (args.size < 1 or not check_vertex_transitivity()):
@@ -145,8 +156,15 @@ def main():
             if len(preferred["gates"]) != k:
                 raise ValueError("Phase circuit has a different gate count")
             phases = []
+            bare_phases = [[] for _ in range(N)]
             for i, sides in enumerate(preferred["gates"]):
                 for b, (points, predecessors) in enumerate(sides):
+                    for p, lit in enumerate(bare[i][b]):
+                        bare_phases[p].append(lit if p in points else -lit)
+                    if args.fix_bare_except is not None:
+                        for p, lit in enumerate(bare[i][b]):
+                            if p not in args.fix_bare_except:
+                                add([lit if p in points else -lit])
                     for choices, selected in ((bare[i][b], points), (incoming[i][b], predecessors)):
                         phases.extend(lit if j in selected else -lit for j, lit in enumerate(choices))
             for choices, selected in ((out_vertices, preferred["out_vars"]),
@@ -225,6 +243,40 @@ def main():
 
         for e in sorted(chosen_rows):
             add_example(*e)
+        if args.focus_sweep is not None:
+            config = {"size": k, "sweep": args.focus_sweep, "basis_rows": sorted(chosen_rows),
+                      "baseline": preferred, "ordered_sides": args.ordered_sides,
+                      "maximal_output": args.maximal_output, "max_refs": args.max_refs,
+                      "distance": args.distance, "min_distance": args.min_distance,
+                      "last_output": args.last_output, "anchor": args.anchor}
+            config = json.loads(json.dumps(config))
+            completed = set()
+            if args.focus_checkpoint and args.focus_checkpoint.exists():
+                data = json.loads(args.focus_checkpoint.read_text(encoding="utf-8"))
+                if data["config"] != config:
+                    raise ValueError("Different sweep configuration in progress file")
+                completed.update(tuple(case) for case in data["unsat"])
+            others = [p for p in range(N) if p != 5]
+            for case in combinations(others, args.focus_sweep - 1):
+                if case in completed:
+                    continue
+                movable = {5, *case}
+                fixed = [lit for p, literals in enumerate(bare_phases) if p not in movable for lit in literals]
+                print(f"Checking movable vertices {sorted(movable)}", flush=True)
+                if sat.solve(assumptions=fixed):
+                    circuit = decode()
+                    verify(circuit, examples)
+                    print(f"SAT elapsed={monotonic() - start:.3f}s; verified on all {len(examples)} rows", flush=True)
+                    print(json.dumps(circuit, indent=2), flush=True)
+                    if args.witness:
+                        save(args.witness, circuit)
+                    return
+                completed.add(case)
+                print(f"UNSAT subcase {sorted(movable)}; {len(completed)} completed", flush=True)
+                if args.focus_checkpoint:
+                    save(args.focus_checkpoint, {"config": config, "unsat": sorted(completed)})
+            print(f"UNSAT sweep only: {len(completed)} subcases; elapsed={monotonic() - start:.3f}s", flush=True)
+            return
         while True:
             if args.progress:
                 save(args.progress, {"config": [k, args.ordered_sides, args.max_refs],
