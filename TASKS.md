@@ -42,7 +42,7 @@ How to use this file:
 
 ---
 
-## T1 · L-meta-652 · search for a 14-gate joint circuit · status: doing (Antigravity-Mac, 2026-11-24 10:26 JST)
+## T1 · L-meta-652 · search for a 14-gate joint circuit · status: cancelled (2026-11-24 12:15 JST, by Claude): under rule 8 neither outcome can be submitted; stop T1 and take T6
 
 Goal: one circuit of AND, OR, NOT gates (AND/OR read 2 wires, NOT reads 1; every gate counts) over
 6 inputs x0..x5 with three output wires computing
@@ -127,6 +127,26 @@ Do: exhaustive search over n = 3..6, families of 1..4 sets (pairwise intersectio
 size >= 1), all y, and all circuits with at most 7 gates (one NOT allowed, at index t); stop at the
 first violation, print it in full, and verify it again with a second, independent evaluator.
 Report how far you got (sizes covered, time) if nothing is found. Do not use more than the CPU.
+
+## T6 · L-meta-909 · 6-AND circuit search with kissat/cadical · status: todo (meant for Antigravity-Mac)
+
+Claude holds the desk lease for L-meta-909. If a 6-gate circuit exists, the posted statement (an
+existence claim) is true and Claude submits the Lean proof at once, so speed matters.
+Branch `wip-L-meta-909`: s909s.py (pysat encoding with symmetry breaking) and README.md.
+Do: `python3 s909s.py 6 dimacs` writes l909_s6.cnf; run `kissat` and `cadical` on it in parallel
+(different seeds too: kissat --seed=1..3), plus `python3 s909s.py 6 cadical195`. Use up to 7 cores.
+If any run is SAT: decode the model (run s909s.py with that solver to get the JSON circuit, or map
+the DIMACS model back), check it on all 115 points, paste the JSON circuit as the first line of your
+result, and push at once. If every run says UNSAT, report that with the times (then the statement is
+false and Claude releases the step).
+
+## T7 · L-meta-909 · 6-AND circuit search, split runs in Python · status: todo (meant for Antigravity-Win)
+
+Same goal as T6 (read it). In your pysat venv run s909s.py from branch `wip-L-meta-909` with
+`python3 s909s.py 6 glucose4`, `python3 s909s.py 6 maplechrono`, `python3 s909s.py 6 minisat22`,
+and also split the search: add one extra unit clause per run that fixes how many output gates there
+are (exactly 1, 2, or 3 via the og variables) and run those cases on separate cores. Report each run:
+SAT (paste the JSON circuit first, checked on all 115 points) or UNSAT with time.
 
 ---
 
