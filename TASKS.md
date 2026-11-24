@@ -52,6 +52,21 @@ Then, separately and only as a suggestion for Claude: look for a short mathemati
 gates are needed (gate counting with the sets of single inputs on which a wire is true, as in the
 proved file lean/PEqualNP/Outside/L_meta_275.lean). Mark anything unverified as unverified.
 
+## T3 · L-meta-602 · hunt for a counterexample on larger graphs · status: todo (meant for Antigravity-Win)
+
+Open conjecture: for every graph G with all degrees at most 3 and no cycle of length 3 or 4, every
+circuit of AND/OR gates (fan-in at most 2, every gate counted) computing "both ends of some edge are
+true" has at least |E| + tau - 1 gates (tau = minimum vertex cover size). A counterexample is a graph
+and a circuit with |E| + tau - 2 gates; it refutes the step and is as valuable as a proof.
+Claude checked C5, C6, C5 plus a pendant edge and one 7-vertex graph: all agree with the bound.
+Tools on branch `wip-L-meta-652`: `synth.py` (SAT synthesis for monotone circuits; it checks only
+edges as true points and maximal independent sets as false points, which is enough for monotone
+circuits) and `hunt.py` (generates such graphs and runs synth.py at size |E| + tau - 2).
+Do: run the hunt on connected graphs with 8, 9 and 10 vertices, densest first (most edges), the
+Petersen graph included (15 edges, tau 6, target 19 gates). Give each graph a time limit (for
+example 2 hours) and run one graph per core. Report every graph with its result: SAT (paste the
+circuit and confirm it with `check()` on all inputs), UNSAT with time, or timeout.
+
 ---
 
 Results (newest first):
