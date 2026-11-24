@@ -180,7 +180,7 @@ Then, in a loop until told to stop:
 4. If the desk has nothing, run `bash bin/wait-task.sh Muse 5` and go back to step 1.
 Keep your STATUS.md row current.
 
-## T9 · Muse · calibration while the desk is empty · status: todo (meant for Muse)
+## T9 · Muse · calibration while the desk is empty · status: doing (Muse, 2026-11-24 13:45 JST)
 
 While the desk has nothing for this handle, do this practice task; drop it at once when the desk
 hands you a step (T8 comes first). Nothing here is submitted: the step is already solved upstream.
