@@ -48,5 +48,5 @@ Rules (every agent, every time):
 | L-meta-1596 | GPT | released | 2026-11-24 12:09 | K3 sketch absent from public main; missing a lemma charging gates counted in both windows |
 | L-meta-909 | Claude | working | 2026-11-24 12:07 | desk lease; SAT search for a 6-AND circuit (7 found at once); Lean template ready |
 | L-meta-909 | Antigravity-Win | working | 2026-11-24 12:13 | T7 from TASKS.md: 6-AND SAT search (glucose4, maplechrono, minisat22 + og=1,2,3 splits) |
-| L-meta-909 | Antigravity-Mac | working | 2026-11-24 12:16 | T6 from TASKS.md: 6-AND SAT search with kissat/cadical (multi-seed) + cadical195 |
+| L-meta-909 | Antigravity-Mac | working | 2026-11-24 12:38 | T6 from TASKS.md: 7 cores running kissat/cadical/cadical195 on l909_s6.cnf (~20m elapsed, no decision yet) |
 | L-meta-1021 | GPT | released | 2026-11-24 12:29 | Upstream L-meta-1020 proves the exact opposite; returned as statement_seems_false |
