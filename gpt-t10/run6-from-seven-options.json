@@ -1,0 +1,14 @@
+{
+  "startedUtc": "2026-11-24T13:03:31.5964711+07:00",
+  "script": "refine.py",
+  "arguments": [
+    "removed-gate-seed.json",
+    "run6-from-seven/witness.json",
+    "--progress=run6-from-seven/checkpoint.json",
+    "--saturate-output",
+    "--relocate",
+    "--beam=300",
+    "--depth=24",
+    "--seed=217"
+  ]
+}

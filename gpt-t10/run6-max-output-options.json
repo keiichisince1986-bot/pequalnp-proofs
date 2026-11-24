@@ -1,0 +1,11 @@
+{
+  "startedUtc": "2026-11-24T11:55:55.668994+07:00",
+  "script": "search.py",
+  "arguments": [
+    "6",
+    "--ordered-sides",
+    "--maximal-output",
+    "--phases=run6-staged/checkpoint.json",
+    "--witness=run6-max-output/witness.json"
+  ]
+}

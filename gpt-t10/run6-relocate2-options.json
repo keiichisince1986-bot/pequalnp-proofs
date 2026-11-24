@@ -1,0 +1,11 @@
+{
+  "startedUtc": "2026-11-24T12:07:59.3845444+07:00",
+  "script": "refine.py",
+  "arguments": [
+    "run6-staged/checkpoint.json",
+    "run6-relocate2/witness.json",
+    "--progress=run6-relocate2/checkpoint.json",
+    "--saturate-output",
+    "--relocate"
+  ]
+}

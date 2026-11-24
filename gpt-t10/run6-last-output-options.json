@@ -1,0 +1,10 @@
+{
+  "startedUtc": "2026-11-24T13:11:31.6590087+07:00",
+  "script": "search.py",
+  "arguments": [
+    "6",
+    "--ordered-sides",
+    "--last-output",
+    "--witness=run6-last-output/witness.json"
+  ]
+}

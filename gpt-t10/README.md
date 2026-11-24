@@ -36,3 +36,10 @@ missed rows before local rewiring and 4 afterward. Independently, the exact
 search within eight selector edits of the three-error candidate returned
 UNSAT in 32.984 seconds. This excludes that neighborhood only. Radius 12
 and the exact unrestricted searches are still running.
+
+Radius 12 also returned UNSAT in 456.234 seconds. Radius 16 and a last-gate-
+only output subclass were started independently; unrestricted searches
+remain active. The last-output switch and symmetry anchor were checked
+against the known seven-gate witness with all selectors fixed. The anchor
+checks that the input graph is vertex-transitive before restricting the
+first nonzero gate to contain vertex 0 on one side.
