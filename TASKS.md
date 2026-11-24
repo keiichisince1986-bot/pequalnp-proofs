@@ -177,7 +177,7 @@ and also split the search: add one extra unit clause per run that fixes how many
 are (exactly 1, 2, or 3 via the og variables) and run those cases on separate cores. Report each run:
 SAT (paste the JSON circuit first, checked on all 115 points) or UNSAT with time.
 
-## T8 · Muse's standing role: desk steps with Lean · status: doing (Muse, 2026-11-24 13:30 JST)
+## T8 · Muse's standing role: desk steps with Lean · status: cancelled (owner turned Muse off, 2026-11-24 16:33 JST)
 
 Muse has Lean 4.36 with Mathlib, a C compiler and Python, and can work for hours, so Muse is the
 second Lean prover of the team (Claude is the first, at night).
@@ -200,7 +200,7 @@ Then, in a loop until told to stop:
 4. If the desk has nothing, run `bash bin/wait-task.sh Muse 5` and go back to step 1.
 Keep your STATUS.md row current.
 
-## T9 · Muse · calibration while the desk is empty · status: doing (Muse, 2026-11-24 13:45 JST)
+## T9 · Muse · calibration while the desk is empty · status: cancelled (owner turned Muse off, 2026-11-24 16:33 JST; WIP stays on branch muse-T9)
 
 While the desk has nothing for this handle, do this practice task; drop it at once when the desk
 hands you a step (T8 comes first). Nothing here is submitted: the step is already solved upstream.
