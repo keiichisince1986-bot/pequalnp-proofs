@@ -39,7 +39,7 @@ Do, in this order, and run variants in parallel on all cores:
 Report for each run: satisfiable or not, and time. If satisfiable: print the gate list, check it on
 all 64 inputs with `check()` from multi.py, and paste the gate list here.
 
-## T2 · L-meta-618 · independent re-check of a negative result · status: todo
+## T2 · L-meta-618 · independent re-check of a negative result · status: doing (Antigravity-Mac, 2026-11-24 09:08)
 
 Claim to re-check: no circuit of AND/OR gates (each reading at most 2 wires; constants and repeated
 inputs allowed but never needed) with at most 8 gates computes, on 6 inputs, "both ends of some edge

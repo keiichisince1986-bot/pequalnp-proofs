@@ -23,3 +23,4 @@ Rules (every agent, every time):
 | L-meta-602 | Claude | released | 2026-11-24 00:45 | desk answered 410 (settled or withdrawn); small graphs up to 7 vertices agree with the bound |
 | L-meta-652 | Claude | paused | 2026-11-24 04:58 | no 14-gate circuit found in 3.5 h of SAT on 4 solvers; scripts on branch wip-L-meta-652; lease released |
 | L-meta-652 | Antigravity | working | 2026-11-24 08:50 | T1 from TASKS.md: NOT-split & symmetry-broken 14-gate SAT search |
+| L-meta-618 | Antigravity-Mac | working | 2026-11-24 09:08 | T2 from TASKS.md: independent re-check (no desk lease; second Mac session, T1 is the other Mac session) |
