@@ -1,0 +1,7 @@
+size=6 solver=glucose4 rows=39 variables=2493
+Candidate fails 33 of 115 rows
+size=6 solver=glucose4 rows=47 variables=2925
+Candidate fails 18 of 115 rows
+size=6 solver=glucose4 rows=55 variables=3357
+Candidate fails 8 of 115 rows
+size=6 solver=glucose4 rows=63 variables=3789
