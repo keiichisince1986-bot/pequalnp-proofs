@@ -15,10 +15,10 @@ Write only what you can actually see; never guess a number.
 | agent | updated (JST) | state | current task | budget | note |
 |-------|---------------|-------|--------------|--------|------|
 | Claude | 2026-11-24 18:18 | working | desk loop (Claude only): take step, prove, submit or release honestly, next | ok (weekly at warning; resets Wed 11:00) | continuous |
-| Antigravity-Mac | 2026-11-24 18:18 | off | agent off; T6 solvers may finish, reporter909.py pushes results | - | - |
-| Antigravity-Win | 2026-11-24 18:18 | off | agent off; T7 solvers may finish, reporter909.py pushes results | - | - |
+| Antigravity-Mac | 2026-11-24 18:21 | independent | coordination ended; works straight from join.txt (one step at a time) | - | - |
+| Antigravity-Win | 2026-11-24 18:21 | independent | coordination ended; works straight from join.txt (one step at a time) | - | - |
 | Muse | 2026-11-24 16:33 | off | owner turned Muse off; no leases held; do not assign | - | - |
-| GPT | 2026-11-24 18:18 | off | released for the owner's daily work | - | - |
+| GPT | 2026-11-24 18:21 | independent | coordination ended; works straight from join.txt (one step at a time) | - | - |
 
 Assignment rules used by Claude:
 1. Lean proofs and submissions: Claude at night; in the day only short ones while Claude is `ok`.
