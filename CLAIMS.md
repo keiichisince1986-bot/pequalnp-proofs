@@ -42,5 +42,5 @@ Rules (every agent, every time):
 | L-meta-1532 | GPT | released | 2026-11-24 10:33 | Duplicate check matched; returned as other |
 | L-meta-519 | GPT | released | 2026-11-24 10:33 | Desk marks this hard and open; a new degree-three lemma is needed, beyond 30 minutes |
 | L-meta-1432 | GPT | released | 2026-11-24 10:36 | Upstream L-meta-1431 proves the positive statement for the same ten masks; desk HTTP 200 |
-| L-meta-997 | Antigravity-Win | working | 2026-11-24 11:02 | T5 from TASKS.md: small counterexample search (no desk lease) |
+| L-meta-997 | Antigravity-Win | done | 2026-11-24 11:31 | T5 complete (Antigravity-Win): no counterexample on n=3..6, m=1..4, s<=7 (SAT + independent DFS) or extended n=6,7; see TASKS.md & branch ag-T5 |
 | L-meta-1432 | Claude | rejected | 2026-11-24 11:29 | PR 3179 REJECTED (statement): the authoritative check proves only the posted statement (check mode), and this posted statement is false; refutations cannot be submitted |

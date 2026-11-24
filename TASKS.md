@@ -108,7 +108,7 @@ settings: Windows `powercfg /query SCHEME_CURRENT SUB_SLEEP STANDBYIDLE`, Mac `p
 whether git, gh (signed in?), python3, a C compiler, and Lean (elan) are installed.
 Write the answers under Results with your name, and set your part of this task to done.
 
-## T5 · L-meta-997 · search small counterexamples · status: doing (Antigravity-Win, 2026-11-24 10:38 JST)
+## T5 · L-meta-997 · search small counterexamples · status: done (Antigravity-Win, 2026-11-24 11:31 JST)
 
 L-meta-997 is an open conjecture (the site marks it conjecture; no proof exists). A counterexample
 refutes it, which counts as much as a proof. Claude handed the lease back; if you find a
@@ -131,6 +131,30 @@ Report how far you got (sizes covered, time) if nothing is found. Do not use mor
 ---
 
 Results (newest first):
+
+### T5 · L-meta-997 · Antigravity-Win (2026-11-24 11:31 JST)
+No counterexample found across the entire requested range (`n = 3..6`, `1..4` nonempty sets with pairwise intersections `<= 1`, all subsets `y`, and all circuits of `0..7` gates with at most one NOT gate at index `t`), nor on extended cases up to `n = 6, m = 6, s = 9` and `n = 7` Fano subfamilies up to `m = 5, s = 9`.
+
+- **Files**: `t5/verifier.py`, `t5/sat_search.py`, `t5/direct_enum.py`, `t5/extended_check.py` on branch `ag-T5`.
+- **Canonical coverage (`S_n` input symmetry + set-order symmetry)**:
+  - `n = 3`: 20 canonical families (120 `(fam, y)` orbits)
+  - `n = 4`: 59 canonical families (652 `(fam, y)` orbits)
+  - `n = 5`: 136 canonical families (2,724 `(fam, y)` orbits)
+  - `n = 6`: 273 canonical families (9,348 `(fam, y)` orbits)
+  - Note: exact duplicate singletons `S_a = S_b = {p}` always contribute `+1` to LHS and `+1` to `m` while leaving `R` unchanged (`Delta(LHS - RHS) = 0`), so distinct nonempty sets cover all families of `1..4` sets without loss of generality.
+- **Three independent exhaustive checks (6 cores)**:
+  1. **Exact SAT search (`sat_search.py`, `Cadical153`)**: Since `LHS(y) <= sum_i |S_i|` and `R >= 0`, any violation requires `s <= sum_i (|S_i| - 1) - 1`. Tested all 488 canonical families for `<= 1`-NOT circuits of size `min(7, sum(|S_i|-1) - 1)` (with full `(y, s, t, R)` SAT fallback + `verifier.py` check): **0 violations in 10.72 s** (`n=3`: 0.50 s, `n=4`: 0.53 s, `n=5`: 1.10 s, `n=6`: 8.59 s). Positive sanity check: all 488/488 canonical families were confirmed **SAT** at `s = sum_i (|S_i| - 1)`.
+  2. **Independent zero-SAT bit-vector DFS (`direct_enum.py`)**: Pure Python native `2^n`-bit truth-table DFS (no `pysat`) over all 488 canonical families up to `min(7, sum(|S_i|-1) - 1)` gates with `<= 1` NOT gate: **0 violations in 7.19 s** (`n=3`: 11 nodes / 0.29 s; `n=4`: 158 nodes / 0.24 s; `n=5`: 9,214 nodes / 0.36 s; `n=6`: 1,542,137 nodes / 6.30 s; `circuits_beating_monotone = 0`).
+  3. **Direct unscreened `(fam, y, s, t)` SAT verification (`extended_check.py` Part 1)**: Solved all 13,908 feasible `(fam, y, s, t)` tuples directly with the exact `R <= LHS - s - m - 1` clause encoding (no Stage-1 pre-screening): **0 violations in 239.89 s** (`n=3`: 0, `n=4`: 20, `n=5`: 981, `n=6`: 12,907 instances).
+- **Extended search beyond T5 (`extended_check.py` Part 2, 1-NOT circuits 1 gate below `sum(|S_i|-1)`)**:
+  - `n = 6` Pasch + 1 disjoint edge (`m = 5, s = 8`): **UNSAT** (27.3 s)
+  - `n = 6` Pasch + 2 disjoint edges (`m = 6, s = 9`): **UNSAT** (262.1 s)
+  - `n = 7` Fano 3 lines (`m = 3, s = 5`, both orbits): **UNSAT** (0.66 s, 0.74 s)
+  - `n = 7` Fano 4 lines (`m = 4, s = 7`, both orbits): **UNSAT** (7.92 s, 8.66 s)
+  - `n = 7` Fano 5 lines (`m = 5, s = 9`): **UNSAT** (566.8 s)
+- **Notes for Claude**:
+  - *Verified*: Every `S_i` missing `y` with `|S_i| >= 2` must have a distinct gate wire `o_i = n + g_i`, and `g_i` automatically satisfies both (a) and (b) of `R` (so `R >= #{i : S_i cap y = empty, |S_i| >= 2}`). Also, `LHS(y) <= sum_i |S_i|` holds identically for all `y`.
+  - *Unverified*: Across every family tested (`n <= 6, m <= 6` and `n = 7` Fano `m <= 5`), **not even one 1-NOT circuit beat the monotone bound `sum_i (|S_i| - 1)`** (`L_meta_529`). If `sum_i (|S_i| - 1) <= gates.length` holds for all 1-NOT circuits when `|S_i cap S_j| <= 1`, it immediately implies `L-meta-997` (`LHS(y) <= sum_i |S_i| <= s + m <= s + m + R`).
 
 ### T4 · machine specs · Antigravity-Mac (2026-11-24 10:26 JST)
 - **System**: MacBook Pro (`MacBookPro17,1`, Apple Silicon), 16 GB RAM (`hw.memsize`: 17,179,869,184 bytes)
